@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Portfolio.Index"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Portfolio.Index" %>
 
 <!DOCTYPE html>
 
@@ -745,7 +745,26 @@
                             <h2 class="h2 article-title">NPM Packages
                             </h2>
                         </header>
-                        <div id="packages-container"></div>
+                        <div id="packages-container">
+                        <asp:Repeater ID="rptPackages" runat="server">
+                            <ItemTemplate>
+                                <div class="package-card">
+                                    <h3>
+                                        <a href='<%# Eval("npm_url") %>' target="_blank">
+                                            <%# GetPackageName(Eval("npm_url")) %>
+                                        </a>
+                                    </h3>
+                                    <p><%# GetPackageDescription(Eval("npm_url")) %></p>
+
+                                    <pre>npm install <%# GetPackageName(Eval("npm_url")) %></pre>
+                                    <a href='<%# GetGithubRepoFromNpm(Eval("npm_url")) %>' target="_blank">GitHub</a><br />
+                                    <img src="https://img.shields.io/npm/v/<%# GetPackageName(Eval("npm_url")) %>?color=blue" alt="npm version" />
+                                    <img src="https://img.shields.io/npm/dw/<%# GetPackageName(Eval("npm_url")) %>" alt="npm downloads" />
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                            </div> 
+
                     </article>
 
                     <!--contact-->
@@ -765,21 +784,21 @@
                         <section class="contact-form">
                             <h3 class="h3 form-title">Contact Form</h3>
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
+                                <ContentTemplate>
 
-                            <div class="input-wrapper">
+                                    <div class="input-wrapper">
 
-                                <asp:TextBox ID="txtFullName" runat="server" CssClass="form-input" Placeholder="Full name" required />
-                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-input" Placeholder="Email address" TextMode="Email" required />
-                            </div>
-                            <asp:TextBox ID="txtMessage" runat="server" CssClass="form-input" Placeholder="Your Message" TextMode="MultiLine" Rows="5" required />
+                                        <asp:TextBox ID="txtFullName" runat="server" CssClass="form-input" Placeholder="Full name" required />
+                                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-input" Placeholder="Email address" TextMode="Email" required />
+                                    </div>
+                                    <asp:TextBox ID="txtMessage" runat="server" CssClass="form-input" Placeholder="Your Message" TextMode="MultiLine" Rows="5" required />
 
 
-                            <asp:Button ID="submitBtn" runat="server"  CssClass="form-btn" OnClick="submitBtn_Click" Text="╰┈➤ Send Message" />
-                               >
+                                    <asp:Button ID="submitBtn" runat="server" CssClass="form-btn" OnClick="submitBtn_Click" Text="╰┈➤ Send Message" />
+                                    >
                               <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
-            </ContentTemplate>
-    </asp:UpdatePanel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
 
                         </section>
 

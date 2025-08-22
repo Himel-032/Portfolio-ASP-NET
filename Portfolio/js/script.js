@@ -207,32 +207,32 @@
     //NPM
 
 
-    const npmUsername = "md_himel"; // replace with your actual username
-    const container = document.getElementById("packages-container");
+    //const npmUsername = "md_himel"; // replace with your actual username
+    //const container = document.getElementById("packages-container");
 
-    async function fetchNpmPackages(username) {
-        const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=author:${username}`);
-        const data = await res.json();
+    //async function fetchNpmPackages(username) {
+    //    const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=author:${username}`);
+    //    const data = await res.json();
 
-        data.objects.forEach(pkg => {
-            const { name, description, links } = pkg.package;
-            let repoLink = "#";
-            if (links.repository) {
-                repoLink = links.repository.replace(/^git\+/, "").replace(/\.git$/, "");
-            }
-            const html = `
-      <div class="package-card">
-        <h3><a href="${links.npm}" target="_blank">${name}</a></h3>
-        <p>${description}</p>
-        <pre>npm install ${name}</pre>
-        <a href="${repoLink || '#'}" target="_blank">GitHub</a><br/>
-        <img src="https://img.shields.io/npm/v/${name}?color=blue" alt="npm version"/>
-        <img src="https://img.shields.io/npm/dw/${name}" alt="npm downloads"/>
-      </div>
-    `;
-            container.innerHTML += html;
-        });
-    }
+    //    data.objects.forEach(pkg => {
+    //        const { name, description, links } = pkg.package;
+    //        let repoLink = "#";
+    //        if (links.repository) {
+    //            repoLink = links.repository.replace(/^git\+/, "").replace(/\.git$/, "");
+    //        }
+    //        const html = `
+    //  <div class="package-card">
+    //    <h3><a href="${links.npm}" target="_blank">${name}</a></h3>
+    //    <p>${description}</p>
+    //    <pre>npm install ${name}</pre>
+    //    <a href="${repoLink || '#'}" target="_blank">GitHub</a><br/>
+    //    <img src="https://img.shields.io/npm/v/${name}?color=blue" alt="npm version"/>
+    //    <img src="https://img.shields.io/npm/dw/${name}" alt="npm downloads"/>
+    //  </div>
+    //`;
+    //        container.innerHTML += html;
+    //    });
+    //}
 
-    fetchNpmPackages(npmUsername);
+    //fetchNpmPackages(npmUsername);
 });
