@@ -1,19 +1,29 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Portfolio.Contact" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <main aria-labelledby="title">
-        <h2 id="title"><%: Title %>.</h2>
-        <h3>Your contact page.</h3>
-        <address>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399<br />
-            <abbr title="Phone">P:</abbr>
-            425.555.0100
-        </address>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="content-panel">
+        <h2>Contact Messages</h2>
+        <asp:GridView ID="gvMessages" runat="server" AutoGenerateColumns="False" 
+    CssClass="npm-table" OnRowCommand="gvMessages_RowCommand">
 
-        <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-        </address>
-    </main>
+    <Columns>
+        <asp:BoundField DataField="id" HeaderText="ID" />
+        <asp:BoundField DataField="fullname" HeaderText="Full Name" />
+        <asp:BoundField DataField="email" HeaderText="Email" />
+        <asp:BoundField DataField="message" HeaderText="Message" />
+
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button ID="btnDelete" runat="server" Text="Delete" 
+                    CommandName="DeleteRow" CommandArgument='<%# Eval("id") %>' 
+                    CssClass="npm-button" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+ 
+
+        <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
+    </div>
 </asp:Content>
+

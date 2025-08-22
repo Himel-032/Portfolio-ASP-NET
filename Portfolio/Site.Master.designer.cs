@@ -33,15 +33,6 @@ namespace Portfolio
         protected global::System.Web.UI.HtmlControls.HtmlAnchor ProjectsLink;
 
         /// <summary>
-        /// ContactLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ContactLink;
-
-        /// <summary>
         /// NpmLink control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace Portfolio
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor NpmLink;
+
+        /// <summary>
+        /// ContactLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor ContactLink;
 
         /// <summary>
         /// MainContent control.

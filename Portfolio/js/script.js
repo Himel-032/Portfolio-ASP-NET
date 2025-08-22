@@ -1,5 +1,48 @@
-﻿
-document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
+    //'use strict';
+
+    //// element toggle function
+    //const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+    //// sidebar variables
+    //const sidebar = document.querySelector("[data-sidebar]");
+    //const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+    //// sidebar toggle functionality for mobile
+    //sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+
+    //// page navigation variables
+    //const navigationLinks = document.querySelectorAll("[data-nav-link]");
+    //const pages = document.querySelectorAll("[data-page]");
+
+    //// add event to all nav links
+    //for (let i = 0; i < navigationLinks.length; i++) {
+    //    navigationLinks[i].addEventListener("click", function (e) {
+    //        e.preventDefault();
+
+    //        // Step 1: Remove 'active' class from all pages and links
+    //        for (let j = 0; j < pages.length; j++) {
+    //            pages[j].classList.remove("active");
+    //            navigationLinks[j].classList.remove("active");
+    //        }
+
+    //        // Step 2: Add 'active' class to the correct page and link
+    //        const targetPageName = this.textContent.trim().toLowerCase();
+    //        const targetPage = document.querySelector(`[data-page="${targetPageName}"]`);
+
+    //        if (targetPage) {
+    //            this.classList.add("active");
+    //            targetPage.classList.add("active");
+    //            window.scrollTo(0, 0); // Scroll to top
+    //        }
+
+    //        // On mobile, close the sidebar after navigation
+    //        if (sidebar.classList.contains('active')) {
+    //            sidebar.classList.remove('active');
+    //        }
+    //    });
+    //}
+
     'use strict';
 
 
@@ -39,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < testimonialsItem.length; i++) {
 
         testimonialsItem[i].addEventListener("click", function () {
-            e.preventDefault();
 
             modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
             modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
@@ -69,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // add event in all select items
     for (let i = 0; i < selectItems.length; i++) {
         selectItems[i].addEventListener("click", function () {
-            e.preventDefault();
 
             let selectedValue = this.innerText.toLowerCase();
             selectValue.innerText = this.innerText;
@@ -104,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < filterBtn.length; i++) {
 
         filterBtn[i].addEventListener("click", function () {
-            e.preventDefault();
 
             let selectedValue = this.innerText.toLowerCase();
             selectValue.innerText = this.innerText;
@@ -148,7 +188,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // add event to all nav link
     for (let i = 0; i < navigationLinks.length; i++) {
         navigationLinks[i].addEventListener("click", function () {
-            e.preventDefault();
 
             for (let i = 0; i < pages.length; i++) {
                 if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
@@ -196,5 +235,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     fetchNpmPackages(npmUsername);
-
 });
