@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Portfolio.SiteMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Admin Panel</title>
+    <link href="Admin_Panel/css/adminStyle.css" runat="server" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <form runat="server">
+        <!-- Navbar -->
+        <nav class="navbar">
+    <a id="AdminLink" runat="server"  href="Admin.aspx">Admin</a>
+    <a id="ProjectsLink" runat="server" href="Projects.aspx">Projects</a>
+    <a id="ContactLink" runat="server" href="Contact.aspx">Contact</a>
+    <a id="NpmLink" runat="server" href="Npm.aspx">NPM</a>
+</nav>
+
+        <!-- Page content -->
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </form>
+</body>
+</html>
+
