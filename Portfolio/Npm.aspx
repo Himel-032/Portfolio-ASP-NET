@@ -4,7 +4,9 @@
         <h2>Submit NPM URL</h2>
         <asp:TextBox ID="txtNpmUrl" runat="server" CssClass="npm-input" Placeholder="Enter NPM URL"></asp:TextBox>
         <br />
-        <asp:Button ID="btnSubmit" runat="server" Text="<%--Submit--%>" CssClass="npm-button" OnClick="btnSubmit_Click" />
+       
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="npm-button" OnClick="btnSubmit_Click" />
+
         <asp:Label ID="lblMessage" runat="server" CssClass="npm-message"></asp:Label>
     </div>
 

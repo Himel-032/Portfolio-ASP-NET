@@ -10,8 +10,14 @@ namespace Portfolio
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
                 LoadNpmUrls();
+                ViewState["EditID"] = null;   // reset EditID on first load
+                btnSubmit.Text = "Submit";     // reset button text
+                txtNpmUrl.Text = "";           // clear textbox
+            }
         }
+
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -40,8 +46,6 @@ namespace Portfolio
                     }
                 }
                 lblMessage.Text = "Updated successfully!";
-                ViewState["EditID"] = null;
-                btnSubmit.Text = "Submit";
             }
             else
             {
@@ -59,9 +63,16 @@ namespace Portfolio
                 lblMessage.Text = "URL saved successfully!";
             }
 
+            // Clear edit state
+            ViewState["EditID"] = null;
+            btnSubmit.Text = "Submit";
             txtNpmUrl.Text = "";
-            LoadNpmUrls();
+
+            // Use Post-Redirect-Get to avoid resubmission on refresh
+            Response.Redirect(Request.RawUrl);
         }
+
+
 
 
         private void LoadNpmUrls()
