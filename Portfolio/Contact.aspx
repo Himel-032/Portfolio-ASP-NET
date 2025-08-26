@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="content-panel">
         <h2>Contact Messages</h2>
+        <div class="table-responsive">
         <asp:GridView ID="gvMessages" runat="server" AutoGenerateColumns="False" 
     CssClass="npm-table" OnRowCommand="gvMessages_RowCommand">
 
@@ -21,7 +22,7 @@
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
- 
+ </div>
 
         <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
     </div>

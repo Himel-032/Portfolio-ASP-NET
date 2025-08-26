@@ -4,7 +4,7 @@
 <html>
 <head runat="server">
     <title>Admin Panel</title>
-    <link href="Admin_Panel/css/adminStyle.css" runat="server" rel="stylesheet" />
+    <link href="Admin_Panel/css/dummy.css?v=1.0" runat="server" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>

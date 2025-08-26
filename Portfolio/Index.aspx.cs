@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -15,7 +16,9 @@ namespace Portfolio
 {
     public partial class Index : System.Web.UI.Page
     {
-        string connStr = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+        //string connStr = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+        string connStr = ConfigurationManager.ConnectionStrings["SqlServerConnection"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,18 +27,20 @@ namespace Portfolio
             }
         }
 
-        
-        
+
+
+
+       
 
         private void LoadPackages()
         {
-            using (MySqlConnection conn = new MySqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 string query = "SELECT npm_url FROM npm_packages ORDER BY id DESC";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(query, conn);
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
@@ -130,17 +135,17 @@ namespace Portfolio
                 return;
             }
 
-            // Insert into database
-            string connStr = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            // Use SQL Server connection string
+            string connStr = ConfigurationManager.ConnectionStrings["SqlServerConnection"].ConnectionString;
 
-            using (MySqlConnection conn = new MySqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 try
                 {
                     conn.Open();
                     string query = "INSERT INTO contacts (fullname, email, message) VALUES (@fullname, @email, @message)";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@fullname", fullname);
                         cmd.Parameters.AddWithValue("@email", email);

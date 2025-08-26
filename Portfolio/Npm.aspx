@@ -12,6 +12,7 @@
 
     <div class="content-panel">
         <h2>All NPM URLs</h2>
+        <div class="table-responsive">
         <asp:GridView ID="gvNpmUrls" runat="server" AutoGenerateColumns="False" CssClass="npm-table" OnRowCommand="gvNpmUrls_RowCommand">
     <Columns>
         <asp:BoundField DataField="id" HeaderText="ID" ReadOnly="True" />
@@ -34,6 +35,7 @@
 
     </Columns>
 </asp:GridView>
+            </div>
 
     </div>
 </asp:Content>
