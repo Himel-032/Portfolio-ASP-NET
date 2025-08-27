@@ -55,6 +55,7 @@ namespace Portfolio
 
                 AdminLink.Attributes["class"] = (currentPage == "admin") ? baseClass + " active" : baseClass;
                 ProjectsLink.Attributes["class"] = (currentPage == "projects") ? baseClass + " active" : baseClass;
+                BlogsLink.Attributes["class"] = (currentPage == "blogs") ? baseClass + " active" : baseClass;
                 ContactLink.Attributes["class"] = (currentPage == "contact") ? baseClass + " active" : baseClass;
                 NpmLink.Attributes["class"] = (currentPage == "npm") ? baseClass + " active" : baseClass;
             }

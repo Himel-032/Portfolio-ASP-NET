@@ -549,104 +549,25 @@
                                 </ul>
                             </div>
                             <ul class="project-list">
-                                <li class="project-item active" data-filter-item data-category="web development">
-                                    <a href="https://github.com/Himel-032/Coffee-shop-website" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/coffee-shop.jpg" alt="coffee shop" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">Buy me a coffee</h3>
-                                        <p class="project-category">Web development</p>
-                                    </a>
-                                </li>
-                                <li class="project-item active" data-filter-item data-category="web development">
-                                    <a href="https://github.com/Himel-032/Dragon_monstar_game" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/dragon-game.png" alt="dragon monster" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">Dragon-Monster-Game</h3>
-                                        <p class="project-category">Web development</p>
-                                    </a>
-                                </li>
-                                <li class="project-item active" data-filter-item data-category="web design">
-                                    <a href="https://github.com/Himel-032/Rock_paper_scissors_game" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/rock-paper-scissor.jpg" alt="rock paper scissors" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">Rock-Paper-Scissors</h3>
-                                        <p class="project-category">Web design</p>
-                                    </a>
-                                </li>
-                                <li class="project-item active" data-filter-item data-category="applications">
-                                    <a href="https://github.com/Himel-032/Bus-Booking-Application-Java" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/bus-book.png" alt="Book a bus" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">Book a bus ticket</h3>
-                                        <p class="project-category">Applications</p>
-                                    </a>
-                                </li>
-                                <li class="project-item active" data-filter-item data-category="web design">
-                                    <a href="https://github.com/Himel-032/Portfolio_02" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/portfolio.jpg" alt="Portfolio" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">Portfolio</h3>
-                                        <p class="project-category">Web design</p>
-                                    </a>
-                                </li>
-                                <li class="project-item active" data-filter-item data-category="web design">
-                                    <a href="https://github.com/Himel-032/Tic_Toc_Toe_Game" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/tick-tock-toe.jpg" alt="tic toc toe" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">Tic-Toc-Toe</h3>
-                                        <p class="project-category">Web design</p>
-                                    </a>
-                                </li>
-                                <li class="project-item active" data-filter-item data-category="web development">
-                                    <a href="https://github.com/Himel-032/Blog" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/blog.png" alt="my blog" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">My blog</h3>
-                                        <p class="project-category">Web development</p>
-                                    </a>
-                                </li>
-                                <li class="project-item active" data-filter-item data-category="applications">
-                                    <a href="https://github.com/Himel-032/ToDo-List" target="_blank">
-                                        <figure class="project-img">
-                                            <div class="project-item-icon-box">
-                                                <ion-icon name="eye-outline"></ion-icon>
-                                            </div>
-                                            <img src="images/to-do-list.jpg" alt="to-do list" loading="lazy">
-                                        </figure>
-                                        <h3 class="project-title">To-do List</h3>
-                                        <p class="project-category">Applications</p>
-                                    </a>
-                                </li>
-
+                                <asp:Repeater ID="rptProjects" runat="server">
+                                    <ItemTemplate>
+                                        <li class="project-item active" data-filter-item data-category='<%# Eval("category").ToString().ToLower() %>'>
+                                            <a href='<%# Eval("git_repo_url") %>' target="_blank">
+                                                <figure class="project-img">
+                                                    <div class="project-item-icon-box">
+                                                        <ion-icon name="eye-outline"></ion-icon>
+                                                    </div>
+                                                    <img src='images/projects/<%# Eval("image_name") %>'
+                                                        alt='<%# Eval("name") %>' loading="lazy">
+                                                </figure>
+                                                <h3 class="project-title"><%# Eval("name") %></h3>
+                                                <p class="project-category"><%# Eval("category") %></p>
+                                            </a>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </ul>
+
                         </section>
                     </article>
 
@@ -657,86 +578,28 @@
                         </header>
                         <section class="blog-posts">
                             <ul class="blog-posts-list">
-                                <li class="blog-post-item">
-                                    <a href="https://himel-032.github.io/Blog/Blog_CP.html" target="_blank">
-                                        <figure class="blog-banner-box">
-                                            <img src="images/blog-cp.jpg" alt="Competitive Programmer" loading="lazy">
-                                        </figure>
-                                        <div class="blog-content">
-                                            <div class="blog-meta">
-                                                <p class="blog-category">Programming</p>
-                                                <span class="dot"></span>
-                                                <time datetime="2025-03-17">Mar 17, 2025</time>
-                                            </div>
-                                            <h3 class="h3 blog-item-title">Become a competitive programmer</h3>
-                                            <p class="blog-text">
-                                                Competitive programming is a sport where you solve algorithmic problems in a set amount of time. It requires
-                                    problem-solving skills, knowledge of algorithms and data structures, and lots of practice. In this blog post, I'll guide
-                                    you through the steps to become a competitive programmer.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="blog-post-item">
-                                    <a href="https://himel-032.github.io/Blog/Blog_ML.html" target="_blank">
-                                        <figure class="blog-banner-box">
-                                            <img src="images/blog-ml.jpg" alt="Machine Learning" loading="lazy">
-                                        </figure>
-                                        <div class="blog-content">
-                                            <div class="blog-meta">
-                                                <p class="blog-category">Machine Learning</p>
-                                                <span class="dot"></span>
-                                                <time datetime="2025-03-17">Mar 17, 2025</time>
-                                            </div>
-                                            <h3 class="h3 blog-item-title">Machine Learning for a Beginner.</h3>
-                                            <p class="blog-text">
-                                                Machine learning is one of the most exciting fields in tech today. Whether you're looking to pursue a career in data
-                                    science, AI, or simply curious about the technology, machine learning can be learned by anyone with the right approach.
-                                    In this blog, I'll guide you through how to start your journey in learning machine learning as a beginner.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="blog-post-item">
-                                    <a href="https://himel-032.github.io/Blog/Blog_web_developer.html" target="_blank">
-                                        <figure class="blog-banner-box">
-                                            <img src="images/blog-web-dev.jpg" alt="web development" loading="lazy">
-                                        </figure>
-                                        <div class="blog-content">
-                                            <div class="blog-meta">
-                                                <p class="blog-category">Web development</p>
-                                                <span class="dot"></span>
-                                                <time datetime="2025-03-17">Mar 17, 2025</time>
-                                            </div>
-                                            <h3 class="h3 blog-item-title">Create your Own website..</h3>
-                                            <p class="blog-text">
-                                                Creating your own website is easier than ever, even if you're a beginner. With the right tools and knowledge, you can
-                                    have your website up and running in no time. In this blog post, I'll guide you through the basic steps involved in
-                                    creating your own website.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="blog-post-item">
-                                    <a href="https://himel-032.github.io/Blog/Blog_soft_dev.html" target="_blank">
-                                        <figure class="blog-banner-box">
-                                            <img src="images/blog-soft-dev.jpg" alt="software development" loading="lazy">
-                                        </figure>
-                                        <div class="blog-content">
-                                            <div class="blog-meta">
-                                                <p class="blog-category">Softare development</p>
-                                                <span class="dot"></span>
-                                                <time datetime="2025-03-17">Mar 17, 2025</time>
-                                            </div>
-                                            <h3 class="h3 blog-item-title">Become a software developer.</h3>
-                                            <p class="blog-text">
-                                                Becoming a software developer is an exciting and fulfilling career path. In this blog, I will guide you through the
-                                    steps to becoming a software developer, from learning the basics to getting hands-on experience.
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+    <asp:Repeater ID="rptBlogs" runat="server">
+        <ItemTemplate>
+            <li class="blog-post-item">
+                <a href='<%# Eval("blog_link") %>' target="_blank">
+                    <figure class="blog-banner-box">
+                        <img src='<%# ResolveUrl("~/images/blogs/" + Eval("blog_photo")) %>' alt='<%# Eval("blog_title") %>' loading="lazy" />
+                    </figure>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <p class="blog-category"><%# Eval("blog_category") %></p>
+                            <span class="dot"></span>
+                            <time datetime='<%# Eval("blog_creation_date") %>'><%# Eval("blog_creation_date") %></time>
+                        </div>
+                        <h3 class="h3 blog-item-title"><%# Eval("blog_title") %></h3>
+                        <p class="blog-text"><%# Eval("blog_description") %></p>
+                    </div>
+                </a>
+            </li>
+        </ItemTemplate>
+    </asp:Repeater>
+</ul>
+
                         </section>
                     </article>
                     <!--NPM-->
@@ -746,24 +609,24 @@
                             </h2>
                         </header>
                         <div id="packages-container">
-                        <asp:Repeater ID="rptPackages" runat="server">
-                            <ItemTemplate>
-                                <div class="package-card">
-                                    <h3>
-                                        <a href='<%# Eval("npm_url") %>' target="_blank">
-                                            <%# GetPackageName(Eval("npm_url")) %>
-                                        </a>
-                                    </h3>
-                                    <p><%# GetPackageDescription(Eval("npm_url")) %></p>
+                            <asp:Repeater ID="rptPackages" runat="server">
+                                <ItemTemplate>
+                                    <div class="package-card">
+                                        <h3>
+                                            <a href='<%# Eval("npm_url") %>' target="_blank">
+                                                <%# GetPackageName(Eval("npm_url")) %>
+                                            </a>
+                                        </h3>
+                                        <p><%# GetPackageDescription(Eval("npm_url")) %></p>
 
-                                    <pre>npm install <%# GetPackageName(Eval("npm_url")) %></pre>
-                                    <a href='<%# GetGithubRepoFromNpm(Eval("npm_url")) %>' target="_blank">GitHub</a><br />
-                                    <img src="https://img.shields.io/npm/v/<%# GetPackageName(Eval("npm_url")) %>?color=blue" alt="npm version" />
-                                    <img src="https://img.shields.io/npm/dw/<%# GetPackageName(Eval("npm_url")) %>" alt="npm downloads" />
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                            </div> 
+                                        <pre>npm install <%# GetPackageName(Eval("npm_url")) %></pre>
+                                        <a href='<%# GetGithubRepoFromNpm(Eval("npm_url")) %>' target="_blank">GitHub</a><br />
+                                        <img src="https://img.shields.io/npm/v/<%# GetPackageName(Eval("npm_url")) %>?color=blue" alt="npm version" />
+                                        <img src="https://img.shields.io/npm/dw/<%# GetPackageName(Eval("npm_url")) %>" alt="npm downloads" />
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
 
                     </article>
 

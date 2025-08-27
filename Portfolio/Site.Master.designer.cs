@@ -33,6 +33,15 @@ namespace Portfolio
         protected global::System.Web.UI.HtmlControls.HtmlAnchor ProjectsLink;
 
         /// <summary>
+        /// BlogsLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor BlogsLink;
+
+        /// <summary>
         /// NpmLink control.
         /// </summary>
         /// <remarks>

@@ -13,6 +13,8 @@
         <nav class="navbar">
     <a id="AdminLink" runat="server"  href="Admin.aspx">Admin</a>
     <a id="ProjectsLink" runat="server" href="Project.aspx">Projects</a>
+            <a id="BlogsLink" runat="server" href="Blog.aspx">Blogs</a>
+
     <a id="NpmLink" runat="server" href="Npm.aspx">NPM</a>
      <a id="ContactLink" runat="server" href="Contact.aspx">Contact</a>
 </nav>

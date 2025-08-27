@@ -23,14 +23,44 @@ namespace Portfolio
         {
             if (!IsPostBack)
             {
+                LoadProjects();
+                LoadBlogList();
                 LoadPackages();
+
+            }
+        }
+        private void LoadBlogList()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM blogs ORDER BY id DESC", conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                rptBlogs.DataSource = dt;
+                rptBlogs.DataBind();
+            }
+        }
+
+        private void LoadProjects()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT name, category, image_name, git_repo_url FROM projects";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    rptProjects.DataSource = dr;
+                    rptProjects.DataBind();
+                }
             }
         }
 
 
 
 
-       
+
 
         private void LoadPackages()
         {
