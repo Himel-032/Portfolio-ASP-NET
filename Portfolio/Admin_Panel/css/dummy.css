@@ -30,6 +30,20 @@ body {
     z-index: 1000;
     border-bottom: 1px solid #e3e8ee;
 }
+.resume-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #000, #333);
+    padding: 14px 24px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 80px;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
 
     .navbar a {
         color: #fff;
@@ -42,7 +56,18 @@ body {
         margin: 0 6px;
         letter-spacing: 0.5px;
     }
-
+.resume-navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    border-radius: 8px;
+    margin: 0 6px;
+    letter-spacing: 0.5px;
+    background-color: black;
+}
         .navbar a:hover,
         .navbar a:focus {
             background: #fff;
@@ -57,7 +82,17 @@ body {
             box-shadow: 0 2px 8px rgba(0,120,215,0.08);
             border-bottom: 3px solid #0078d7;
         }
-
+        .navbar a.resume {
+            background-color: black;
+            color: white;
+        }
+.resume-navbar a:hover,
+.resume-navbar a:focus {
+    background: #333;
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+}
+           
 /* =======================
    Content Panel / Card
 ======================= */
