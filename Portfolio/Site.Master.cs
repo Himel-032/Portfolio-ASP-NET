@@ -20,7 +20,9 @@ namespace Portfolio
                 string baseClass = "nav-link";
 
                 AdminLink.Attributes["class"] = (currentPage == "admin") ? baseClass + " active" : baseClass;
+                ServicesLink.Attributes["class"] = (currentPage == "services") ? baseClass + " active" : baseClass;
                 ResumeLink.Attributes["class"] = (currentPage == "resume") ? baseClass + " active" : baseClass;
+                CertificatesLink.Attributes["class"] = (currentPage == "certificates") ? baseClass + " active" : baseClass;
                 ProjectsLink.Attributes["class"] = (currentPage == "projects") ? baseClass + " active" : baseClass;
                 BlogsLink.Attributes["class"] = (currentPage == "blogs") ? baseClass + " active" : baseClass;
                 ContactLink.Attributes["class"] = (currentPage == "contact") ? baseClass + " active" : baseClass;

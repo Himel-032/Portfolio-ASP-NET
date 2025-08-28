@@ -7,7 +7,7 @@
     <title>Himel</title>
     <!--icon-->
     <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,6 +106,9 @@
                             <li class="navbar-item">
                                 <button class="navbar-link" data-nav-link>Resume</button>
                             </li>
+                             <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Certificate</button>
+          </li>
                             <li class="navbar-item">
                                 <button class="navbar-link" data-nav-link>Portfolio</button>
                             </li>
@@ -139,104 +142,27 @@
                         <section class="service">
                             <h3 class="h3 service-title">What I'm doing</h3>
                             <ul class="service-list">
-                                <li class="service-item">
-                                    <div class="service-icon-box">
-                                        <img src="images/icon-design.svg" alt="design icon" width="40">
-                                    </div>
-                                    <div class="service-content-box">
-                                        <h4 class="h4 service-item-title">Web design</h4>
-                                        <p class="service-item-text">
-                                            The most modern and high-quality design made at a professional level.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="service-item">
-                                    <div class="service-icon-box">
-                                        <img src="images/icon-dev.svg" alt="web development icon" width="40">
-                                    </div>
-                                    <div class="service-content-box">
-                                        <h4 class="h4 service-item-title">Web development</h4>
-                                        <p class="service-item-text">
-                                            high-quality development of sites at the professional level.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="service-item">
-                                    <div class="service-icon-box">
-                                        <img src="images/icon-app.svg" alt="mobile app icon" width="40">
-                                    </div>
-                                    <div class="service-content-box">
-                                        <h4 class="h4 service-item-title">Mobile app</h4>
-                                        <p class="service-item-text">
-                                            Professional development of applications for iOS and Android.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="service-item">
-                                    <div class="service-icon-box">
-                                        <img src="images/icon-photo.svg" alt="camera icon" width="40">
-                                    </div>
-                                    <div class="service-content-box">
-                                        <h4 class="h4 service-item-title">Photography</h4>
-                                        <p class="service-item-text">
-                                            I make high-quality photos of any category at a professional level.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
+    <asp:Repeater ID="rptServices" runat="server">
+        <ItemTemplate>
+            <li class="service-item">
+                <div class="service-icon-box">
+                    <img src='<%# ResolveUrl(Eval("IconPath").ToString()) %>' 
+                         alt='<%# Eval("ServiceTitle") %> icon' width="40" />
+                </div>
+                <div class="service-content-box">
+                    <h4 class="h4 service-item-title"><%# Eval("ServiceTitle") %></h4>
+                    <p class="service-item-text"><%# Eval("ServiceDescription") %></p>
+                </div>
+            </li>
+        </ItemTemplate>
+    </asp:Repeater>
+</ul>
+
                         </section>
                         <!-- testimonials-->
-                        <section class="testimonials">
-                            <h3 class="h3 testimonials-title">Testimonials</h3>
-                            <ul class="testimonials-list has-scrollbar">
-                                <li class="testimonials-item">
-                                    <div class="content-card" data-testimonials-item>
-                                        <figure class="testimonials-avatar-box">
-                                            <img src="images/avatar-1.png" alt="Niloy Hossain" width="60" data-testimonials-avatar>
-                                        </figure>
-                                        <h4 class="h4 testimonials-item-title" data-testimonials-title>Niloy Hossain</h4>
-                                        <div class="testimonials-text" data-testimonials-text>
-                                            <p>
-                                                Himel Hossain is a talented and dedicated individual with a passion for technology and design. His skills in web development and UI/UX design are impressive, and he consistently delivers high-quality work. Himel's creativity and attention to detail make him a valuable asset to any project.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="testimonials-item">
-                                    <div class="content-card" data-testimonials-item>
-                                        <figure class="testimonials-avatar-box">
-                                            <img src="images/avatar-2.png" alt="Gigi Hadid" width="60" data-testimonials-avatar>
-                                        </figure>
-                                        <h4 class="h4 testimonials-item-title" data-testimonials-title>Gigi Hadid</h4>
-                                        <div class="testimonials-text" data-testimonials-text>
-                                            <p>
-                                                Himel Hossain is a passionate technologist with a keen eye for design. He excels in web development and UI/UX,
-                                    consistently producing work that is both innovative and polished. His ability to combine creativity with meticulous
-                                    attention to detail makes him an invaluable contributor to any project.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="testimonials-item">
-                                    <div class="content-card" data-testimonials-item>
-                                        <figure class="testimonials-avatar-box">
-                                            <img src="images/avatar-3.png" alt="Elice Huntsman" width="60" data-testimonials-avatar>
-                                        </figure>
-                                        <h4 class="h4 testimonials-item-title" data-testimonials-title>Elice Huntsman</h4>
-                                        <div class="testimonials-text" data-testimonials-text>
-                                            <p>
-                                                With strong skills in technology and design, Himel Hossain consistently delivers outstanding results in web development
-                                    and user interface design. His dedication and creative approach ensure that every project he works on benefits from high
-                                    standards and thoughtful execution.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
+                        
 
-                            </ul>
-                        </section>
-
-                        <!--Testimonails modal-->
+                        <!--Not used -->
                         <div class="modal-container" data-modal-container>
                             <div class="overlay" data-overlay></div>
                             <section class="testimonials-modal">
@@ -265,45 +191,7 @@
                             </section>
                         </div>
                         <!--Clients-->
-                        <section class="clients">
-                            <h3 class="h3 clients-title">Clients</h3>
-                            <ul class="clients-list has-scrollbar">
-                                <li class="clients-item">
-                                    <a href="#">
-                                        <img src="images/logo-1-color.png" alt="client logo">
-                                    </a>
-                                </li>
-                                <li class="clients-item">
-                                    <a href="#">
-                                        <img src="images/logo-2-color.png" alt="client logo">
-                                    </a>
-                                </li>
-
-                                <li class="clients-item">
-                                    <a href="#">
-                                        <img src="images/logo-3-color.png" alt="client logo">
-                                    </a>
-                                </li>
-
-                                <li class="clients-item">
-                                    <a href="#">
-                                        <img src="images/logo-4-color.png" alt="client logo">
-                                    </a>
-                                </li>
-
-                                <li class="clients-item">
-                                    <a href="#">
-                                        <img src="images/logo-5-color.png" alt="client logo">
-                                    </a>
-                                </li>
-
-                                <li class="clients-item">
-                                    <a href="#">
-                                        <img src="images/logo-6-color.png" alt="client logo">
-                                    </a>
-                                </li>
-                            </ul>
-                        </section>
+                        
 
                     </article>
                     <!--Resume-->
@@ -319,35 +207,17 @@
                                 <h3 class="h3">Education</h3>
                             </div>
                             <ol class="timeline-list">
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">CSE at Khulna University of Engineering & Technology</h4>
-                                    <span>2023 - 2026</span>
-                                    <p class="timeline-text">
-                                        I am pursuing my BSc degree in Computer Science and Engineering at KUET.
-                                    </p>
-                                </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">Science at BPATC School and College</h4>
-                                    <span>2019 - 2021</span>
-                                    <p class="timeline-text">
-                                        I have completed my Higher Secondary Education (HSC) from Science group at BPATC School and College.
-                                    </p>
-                                </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">Alhaz Jamal Uddin Ideal High School</h4>
-                                    <span>2014 - 2019</span>
-                                    <p class="timeline-text">
-                                        I have completed my Secondary Education.
-                                    </p>
-                                </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">Shailbari Govt. Primary School</h4>
-                                    <span>2009 - 2013</span>
-                                    <p class="timeline-text">
-                                        I have completed my Primary School Education here.
-                                    </p>
-                                </li>
+                                <asp:Repeater ID="rptEducation" runat="server">
+                                    <ItemTemplate>
+                                        <li class="timeline-item">
+                                            <h4 class="h4 timeline-item-title"><%# Eval("Title") %></h4>
+                                            <span><%# Eval("Duration") %></span>
+                                            <p class="timeline-text"><%# Eval("Description") %></p>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </ol>
+
                         </section>
                         <section class="timeline">
                             <div class="title-wrapper">
@@ -357,147 +227,76 @@
                                 <h3 class="h3">Experience</h3>
                             </div>
                             <ol class="timeline-list">
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">Web Developer</h4>
-                                    <span>2023 - Present</span>
-                                    <p class="timeline-text">
-                                        I have developed many websites and games.
-                                    </p>
-                                </li>
-                                <li class="timeline-item">
-                                    <h4 class="h4 timeline-item-title">Mobile App Developer</h4>
-                                    <span>2023 - Present</span>
-                                    <p class="timeline-text">
-                                        I have developed many mobile applications.
-                                    </p>
-                                </li>
-
+                                <asp:Repeater ID="rptExperience" runat="server">
+                                    <ItemTemplate>
+                                        <li class="timeline-item">
+                                            <h4 class="h4 timeline-item-title"><%# Eval("Title") %></h4>
+                                            <span><%# Eval("Duration") %></span>
+                                            <p class="timeline-text"><%# Eval("Description") %></p>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </ol>
+
                         </section>
                         <section class="skill">
                             <h3 class="h3 skills-title">My skills</h3>
                             <ul class="skills-list content-card">
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">Web design</h5>
-                                        <data value="80">80%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 80%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">Graphic design</h5>
-                                        <data value="70">70%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 70%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">Software development</h5>
-                                        <data value="50">50%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 50%;"></div>
-                                    </div>
-                                </li>
+                                <asp:Repeater ID="rptSkills" runat="server">
+                                    <ItemTemplate>
+                                        <li class="skills-item">
+                                            <div class="title-wrapper">
+                                                <h5 class="h5"><%# Eval("Name") %></h5>
+                                                <data value='<%# Eval("Percentage") %>'><%# Eval("Percentage") %>%</data>
+                                            </div>
+                                            <div class="skill-progress-bg">
+                                                <div class="skill-progress-fill" style='width: <%# Eval("Percentage") %>%;'></div>
+                                            </div>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </ul>
+
                         </section>
 
                         <section class="skill">
                             <h3 class="h3 skills-title">Programming Language</h3>
                             <ul class="skills-list content-card">
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">C</h5>
-                                        <data value="80">80%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 80%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">C++</h5>
-                                        <data value="90">90%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 90%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">Java</h5>
-                                        <data value="70">70%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 70%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">Python</h5>
-                                        <data value="80">80%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 80%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">JavaScript</h5>
-                                        <data value="90">90%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 90%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">PHP</h5>
-                                        <data value="70">70%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 70%;"></div>
-                                    </div>
-                                </li>
+                                <asp:Repeater ID="rptProgLanguages" runat="server">
+                                    <ItemTemplate>
+                                        <li class="skills-item">
+                                            <div class="title-wrapper">
+                                                <h5 class="h5"><%# Eval("Name") %></h5>
+                                                <data value='<%# Eval("Percentage") %>'><%# Eval("Percentage") %>%</data>
+                                            </div>
+                                            <div class="skill-progress-bg">
+                                                <div class="skill-progress-fill" style='width: <%# Eval("Percentage") %>%;'></div>
+                                            </div>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </ul>
+
                         </section>
 
                         <section class="skill">
                             <h3 class="h3 skills-title">Language Proficiency</h3>
                             <ul class="skills-list content-card">
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">English</h5>
-                                        <data value="80">80%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 80%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">Bangla</h5>
-                                        <data value="100">100%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 100%;"></div>
-                                    </div>
-                                </li>
-                                <li class="skills-item">
-                                    <div class="title-wrapper">
-                                        <h5 class="h5">Hindi</h5>
-                                        <data value="70">70%</data>
-                                    </div>
-                                    <div class="skill-progress-bg">
-                                        <div class="skill-progress-fill" style="width: 70%;"></div>
-                                    </div>
-                                </li>
+                                <asp:Repeater ID="rptLanguages" runat="server">
+                                    <ItemTemplate>
+                                        <li class="skills-item">
+                                            <div class="title-wrapper">
+                                                <h5 class="h5"><%# Eval("Name") %></h5>
+                                                <data value='<%# Eval("Percentage") %>'><%# Eval("Percentage") %>%</data>
+                                            </div>
+                                            <div class="skill-progress-bg">
+                                                <div class="skill-progress-fill" style='width: <%# Eval("Percentage") %>%;'></div>
+                                            </div>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </ul>
+
                         </section>
                         <button class="cv-btn">
                             <a a href="CV/CV_Md_Himel_Hossain.pdf" download="CV_Md_Himel_Hossain.pdf">Download CV</a>
@@ -505,6 +304,51 @@
                         </button>
 
                     </article>
+                    <!-- Certificate-->
+         <article class="blog" data-page="certificate">
+
+        <header>
+          <h2 class="h2 article-title">Certificate</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            
+
+           <asp:Repeater ID="rptCertificates" runat="server">
+    <ItemTemplate>
+        <li class="blog-post-item">
+            <a href='<%# ResolveUrl("~/images/certificates/" + Eval("image_name")) %>' download='<%# Eval("certificate_title") %>'>
+                <figure class="blog-banner-box">
+                    <img src='<%# ResolveUrl("~/images/certificates/" + Eval("image_name")) %>' 
+                         alt='<%# Eval("certificate_title") %>' 
+                         loading="lazy" />
+                </figure>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <p class="blog-category"><%# Eval("certificate_title") %></p>
+                        <span class="dot"></span>
+                        <time datetime='<%# Eval("certificate_date", "{0:yyyy-MM-dd}") %>'>
+                            <%# Eval("certificate_date", "{0:MMM dd, yyyy}") %>
+                        </time>
+                    </div>
+                    <p class="blog-text">
+                        <%# Eval("description") %>
+                    </p>
+                </div>
+            </a>
+        </li>
+    </ItemTemplate>
+</asp:Repeater>
+
+            
+          </ul>
+
+        </section>
+
+      </article>
                     <!--Portfolio-->
                     <article class="portfolio" data-page="portfolio">
                         <header>
@@ -578,27 +422,27 @@
                         </header>
                         <section class="blog-posts">
                             <ul class="blog-posts-list">
-    <asp:Repeater ID="rptBlogs" runat="server">
-        <ItemTemplate>
-            <li class="blog-post-item">
-                <a href='<%# Eval("blog_link") %>' target="_blank">
-                    <figure class="blog-banner-box">
-                        <img src='<%# ResolveUrl("~/images/blogs/" + Eval("blog_photo")) %>' alt='<%# Eval("blog_title") %>' loading="lazy" />
-                    </figure>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <p class="blog-category"><%# Eval("blog_category") %></p>
-                            <span class="dot"></span>
-                            <time datetime='<%# Eval("blog_creation_date") %>'><%# Eval("blog_creation_date") %></time>
-                        </div>
-                        <h3 class="h3 blog-item-title"><%# Eval("blog_title") %></h3>
-                        <p class="blog-text"><%# Eval("blog_description") %></p>
-                    </div>
-                </a>
-            </li>
-        </ItemTemplate>
-    </asp:Repeater>
-</ul>
+                                <asp:Repeater ID="rptBlogs" runat="server">
+                                    <ItemTemplate>
+                                        <li class="blog-post-item">
+                                            <a href='<%# Eval("blog_link") %>' target="_blank">
+                                                <figure class="blog-banner-box">
+                                                    <img src='<%# ResolveUrl("~/images/blogs/" + Eval("blog_photo")) %>' alt='<%# Eval("blog_title") %>' loading="lazy" />
+                                                </figure>
+                                                <div class="blog-content">
+                                                    <div class="blog-meta">
+                                                        <p class="blog-category"><%# Eval("blog_category") %></p>
+                                                        <span class="dot"></span>
+                                                        <time datetime='<%# Eval("blog_creation_date") %>'><%# Eval("blog_creation_date") %></time>
+                                                    </div>
+                                                    <h3 class="h3 blog-item-title"><%# Eval("blog_title") %></h3>
+                                                    <p class="blog-text"><%# Eval("blog_description") %></p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
 
                         </section>
                     </article>

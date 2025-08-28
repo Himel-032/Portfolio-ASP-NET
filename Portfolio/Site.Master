@@ -12,7 +12,9 @@
         <!-- Navbar -->
         <nav class="navbar">
     <a id="AdminLink" runat="server"  href="Admin.aspx">Admin</a>
-            <a id="ResumeLink" runat="server"  href="Resume.aspx">Resume</a>
+            <a id="ServicesLink" runat="server" href="Services.aspx">Services</a>
+    <a id="ResumeLink" runat="server"  href="Resume.aspx">Resume</a>
+    <a id="CertificatesLink" runat="server" href="Certificates.aspx">Certificates</a>
     <a id="ProjectsLink" runat="server" href="Project.aspx">Projects</a>
      <a id="BlogsLink" runat="server" href="Blog.aspx">Blogs</a>
 

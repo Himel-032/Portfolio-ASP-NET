@@ -26,7 +26,124 @@ namespace Portfolio
                 LoadProjects();
                 LoadBlogList();
                 LoadPackages();
+                LoadEducationTimeline();
+                LoadExperienceTimeline();
+                LoadSkills();
+                LoadProgrammingLanguages();
+                LoadLanguages();
+                LoadCertificates();
+                LoadServices();
 
+            }
+        }
+        private void LoadServices()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string sql = "SELECT Id, ServiceTitle, ServiceDescription, IconPath FROM Services ORDER BY Id DESC";
+                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                rptServices.DataSource = dt;
+                rptServices.DataBind();
+            }
+        }
+        private void LoadCertificates()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                SqlDataAdapter da = new SqlDataAdapter("SELECT TOP (1000) id, certificate_title, description, image_name, certificate_date FROM Certificates ORDER BY certificate_date DESC", conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                rptCertificates.DataSource = dt;
+                rptCertificates.DataBind();
+            }
+        }
+        private void LoadLanguages()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT TOP (1000) [Id], [Name], [Percentage] FROM [portfolio].[dbo].[Languages] ORDER BY [Id] ASC";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    rptLanguages.DataSource = dt;
+                    rptLanguages.DataBind();
+                }
+            }
+        }
+
+        private void LoadProgrammingLanguages()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT TOP (1000) [Id], [Name], [Percentage] FROM [portfolio].[dbo].[ProgrammingLanguages] ORDER BY [Id] ASC";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    rptProgLanguages.DataSource = dt;
+                    rptProgLanguages.DataBind();
+                }
+            }
+        }
+        private void LoadSkills()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT TOP (1000) [Id], [Name], [Percentage] FROM [portfolio].[dbo].[Skills] ORDER BY [Id] ASC";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    rptSkills.DataSource = dt;
+                    rptSkills.DataBind();
+                }
+            }
+        }
+        private void LoadExperienceTimeline()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT TOP (1000) [Id], [Title], [Duration], [Description] FROM [portfolio].[dbo].[Experience] ORDER BY [Id] DESC";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    rptExperience.DataSource = dt;
+                    rptExperience.DataBind();
+                }
+            }
+        }
+        private void LoadEducationTimeline()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT TOP (1000) [Id], [Title], [Duration], [Description] FROM [portfolio].[dbo].[Education] ORDER BY [Id] DESC";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    rptEducation.DataSource = dt;
+                    rptEducation.DataBind();
+                }
             }
         }
         private void LoadBlogList()

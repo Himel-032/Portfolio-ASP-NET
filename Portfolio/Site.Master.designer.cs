@@ -24,6 +24,15 @@ namespace Portfolio
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AdminLink;
 
         /// <summary>
+        /// ServicesLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor ServicesLink;
+
+        /// <summary>
         /// ResumeLink control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Portfolio
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor ResumeLink;
+
+        /// <summary>
+        /// CertificatesLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor CertificatesLink;
 
         /// <summary>
         /// ProjectsLink control.
