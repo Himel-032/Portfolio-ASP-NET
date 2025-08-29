@@ -73,6 +73,18 @@ namespace Portfolio
                         imgHero.Src = reader["ImagePath"].ToString();
                         imgHero.Alt = reader["Name"].ToString();
 
+                        // Set the CV download link dynamically
+                        string pdfPath = reader["PdfPath"].ToString(); // <-- Ensure this column exists in your table
+                        if (!string.IsNullOrEmpty(pdfPath))
+                        {
+                            lnkDownloadCV.NavigateUrl = pdfPath;
+                            lnkDownloadCV.Text = "Download CV";
+                            lnkDownloadCV.Visible = true;
+                        }
+                        else
+                        {
+                            lnkDownloadCV.Visible = false;
+                        }
                     }
                 }
             }

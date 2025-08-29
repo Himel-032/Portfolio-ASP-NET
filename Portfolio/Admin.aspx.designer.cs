@@ -213,6 +213,33 @@ namespace Portfolio
         protected global::System.Web.UI.WebControls.Image imgPreview;
 
         /// <summary>
+        /// lblPdf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPdf;
+
+        /// <summary>
+        /// fuPdf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuPdf;
+
+        /// <summary>
+        /// hlPdf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlPdf;
+
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

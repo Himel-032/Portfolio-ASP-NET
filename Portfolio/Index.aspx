@@ -302,7 +302,9 @@
 
                         </section>
                         <button class="cv-btn">
-                            <a a href="CV/CV_Md_Himel_Hossain.pdf" download="CV_Md_Himel_Hossain.pdf">Download CV</a>
+                           
+                            <asp:HyperLink ID="lnkDownloadCV" runat="server" Text="Download CV"  Target="_blank"></asp:HyperLink>
+
                             <ion-icon name="download-outline"></ion-icon>
                         </button>
 

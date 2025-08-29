@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web.UI;
-using System.Xml.Linq;
 
 namespace Portfolio
 {
     public partial class Admin : System.Web.UI.Page
     {
         string connStr = ConfigurationManager.ConnectionStrings["SqlServerConnection"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,6 +39,17 @@ namespace Portfolio
                     string imgPath = dr["ImagePath"].ToString();
                     if (!string.IsNullOrEmpty(imgPath))
                         imgPreview.ImageUrl = imgPath;
+
+                    string pdfPath = dr["PdfPath"]?.ToString();
+                    if (!string.IsNullOrEmpty(pdfPath))
+                    {
+                        hlPdf.NavigateUrl = pdfPath;
+                        hlPdf.Visible = true;
+                    }
+                    else
+                    {
+                        hlPdf.Visible = false;
+                    }
                 }
                 dr.Close();
             }
@@ -63,12 +73,26 @@ namespace Portfolio
             string tw = txtTwitter.Text.Trim();
             string ig = txtInstagram.Text.Trim();
 
-            string fileName = null;
+            string imageFileName = null;
             if (fuImage.HasFile)
             {
                 string ext = Path.GetExtension(fuImage.FileName);
-                fileName = "~/images/profile/hero_" + DateTime.Now.Ticks + ext;
-                fuImage.SaveAs(Server.MapPath(fileName));
+                imageFileName = "~/images/profile/hero_" + DateTime.Now.Ticks + ext;
+                fuImage.SaveAs(Server.MapPath(imageFileName));
+            }
+
+            string pdfFileName = null;
+            if (fuPdf.HasFile)
+            {
+                string ext = Path.GetExtension(fuPdf.FileName);
+                if (ext.ToLower() != ".pdf")
+                {
+                    lblMessage.Text = "Only PDF files allowed!";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
+                pdfFileName = "~/uploads/resume_" + DateTime.Now.Ticks + ext;
+                fuPdf.SaveAs(Server.MapPath(pdfFileName));
             }
 
             using (SqlConnection conn = new SqlConnection(connStr))
@@ -81,25 +105,27 @@ namespace Portfolio
                 if (count == 0)
                 {
                     cmd = new SqlCommand(@"INSERT INTO Profile 
-                        (Name, Email, Phone, Location, BirthDate, Facebook, Twitter, Instagram, ImagePath)
-                        VALUES (@Name,@Email,@Phone,@Location,@BirthDate,@Facebook,@Twitter,@Instagram,@Image)", conn);
+                        (Name, Email, Phone, Location, BirthDate, Facebook, Twitter, Instagram, ImagePath, PdfPath)
+                        VALUES (@Name,@Email,@Phone,@Location,@BirthDate,@Facebook,@Twitter,@Instagram,@Image,@Pdf)", conn);
                 }
                 else
                 {
-                    // get existing Id
-                    SqlCommand cmdId = new SqlCommand("SELECT TOP 1 Id, ImagePath FROM Profile ORDER BY Id DESC", conn);
+                    SqlCommand cmdId = new SqlCommand("SELECT TOP 1 Id, ImagePath, PdfPath FROM Profile ORDER BY Id DESC", conn);
                     SqlDataReader dr = cmdId.ExecuteReader();
                     dr.Read();
                     int id = Convert.ToInt32(dr["Id"]);
                     string oldImage = dr["ImagePath"].ToString();
+                    string oldPdf = dr["PdfPath"].ToString();
                     dr.Close();
 
-                    if (!string.IsNullOrEmpty(fileName) && !string.IsNullOrEmpty(oldImage) && File.Exists(Server.MapPath(oldImage)))
+                    if (!string.IsNullOrEmpty(imageFileName) && !string.IsNullOrEmpty(oldImage) && File.Exists(Server.MapPath(oldImage)))
                         File.Delete(Server.MapPath(oldImage));
+                    if (!string.IsNullOrEmpty(pdfFileName) && !string.IsNullOrEmpty(oldPdf) && File.Exists(Server.MapPath(oldPdf)))
+                        File.Delete(Server.MapPath(oldPdf));
 
                     cmd = new SqlCommand(@"UPDATE Profile SET 
                         Name=@Name, Email=@Email, Phone=@Phone, Location=@Location, BirthDate=@BirthDate,
-                        Facebook=@Facebook, Twitter=@Twitter, Instagram=@Instagram, ImagePath=@Image
+                        Facebook=@Facebook, Twitter=@Twitter, Instagram=@Instagram, ImagePath=@Image, PdfPath=@Pdf
                         WHERE Id=@Id", conn);
                     cmd.Parameters.AddWithValue("@Id", id);
                 }
@@ -112,7 +138,8 @@ namespace Portfolio
                 cmd.Parameters.AddWithValue("@Facebook", fb);
                 cmd.Parameters.AddWithValue("@Twitter", tw);
                 cmd.Parameters.AddWithValue("@Instagram", ig);
-                cmd.Parameters.AddWithValue("@Image", fileName ?? imgPreview.ImageUrl);
+                cmd.Parameters.AddWithValue("@Image", imageFileName ?? imgPreview.ImageUrl);
+                cmd.Parameters.AddWithValue("@Pdf", pdfFileName ?? (hlPdf.Visible ? hlPdf.NavigateUrl : (object)DBNull.Value));
 
                 cmd.ExecuteNonQuery();
             }

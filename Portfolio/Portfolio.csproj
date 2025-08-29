@@ -423,6 +423,7 @@
     <Folder Include="images\profile\" />
     <Folder Include="images\projects\" />
     <Folder Include="images\services\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
