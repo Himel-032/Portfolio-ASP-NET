@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Profile;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,6 +24,8 @@ namespace Portfolio
         {
             if (!IsPostBack)
             {
+            
+                LoadProfile();
                 LoadProjects();
                 LoadBlogList();
                 LoadPackages();
@@ -36,6 +39,46 @@ namespace Portfolio
 
             }
         }
+        private void LoadProfile()
+        {
+            string connStr = ConfigurationManager.ConnectionStrings["SqlServerConnection"].ConnectionString;
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                string query = "SELECT TOP 1 * FROM Profile ORDER BY Id DESC"; // only one row max
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        lblName.InnerText = reader["Name"].ToString();
+                        lblName.Attributes["title"] = reader["Name"].ToString();
+
+                        lnkEmail.InnerText = reader["Email"].ToString();
+                        lnkEmail.HRef = "mailto:" + reader["Email"].ToString();
+
+                        lnkPhone.InnerText = reader["Phone"].ToString();
+                        lnkPhone.HRef = "tel:" + reader["Phone"].ToString();
+
+                        lblLocation.InnerText = reader["Location"].ToString();
+
+                        lnkFacebook.HRef = reader["Facebook"].ToString();
+                        lnkFacebook.Target="_blank";
+                        lnkTwitter.HRef = reader["Twitter"].ToString();
+                        lnkTwitter.Target="_blank";
+                        lnkInstagram.HRef = reader["Instagram"].ToString();
+                        lnkInstagram.Target="_blank";
+                        imgHero.Src = reader["ImagePath"].ToString();
+                        imgHero.Alt = reader["Name"].ToString();
+
+                    }
+                }
+            }
+        }
+      
+
         private void LoadServices()
         {
             using (SqlConnection conn = new SqlConnection(connStr))

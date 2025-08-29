@@ -44,8 +44,80 @@
     //}
 
     'use strict';
+    // Theme toggle functionality
+    const themeToggleBtn = document.querySelector("[data-theme-toggle]");
+    const body = document.body;
+
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem("theme") || "dark";
+    body.setAttribute("data-theme", currentTheme);
+
+    // Theme toggle function
+    const toggleTheme = function () {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+        body.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+
+        // Update toggle button icon/text
+        updateThemeToggleBtn(newTheme);
+    };
+
+    // Update theme toggle button appearance
+    const updateThemeToggleBtn = function (theme) {
+        const icon = themeToggleBtn.querySelector(".theme-icon");
+        const text = themeToggleBtn.querySelector(".theme-text");
+
+        if (theme === "dark") {
+            icon.textContent = "☀️";
+
+        } else {
+            icon.textContent = "🌙";
+
+        }
+    };
+
+    // Initialize theme toggle button
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", toggleTheme);
+        updateThemeToggleBtn(currentTheme);
+    }
 
 
+    const roles = ["CS Undergrad", "ML Enthusiast", "Programmer"];
+    const titleElement = document.querySelector(".info-content .title");
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let typing = true;
+
+    function typeEffect() {
+        const currentRole = roles[roleIndex];
+
+        if (typing) {
+            titleElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+
+            if (charIndex === currentRole.length) {
+                typing = false;
+                setTimeout(typeEffect, 1200); // pause before deleting
+                return;
+            }
+        } else {
+            titleElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+
+            if (charIndex === 0) {
+                typing = true;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+        }
+        setTimeout(typeEffect, typing ? 120 : 80); // typing speed
+    }
+
+    // Start typing
+    typeEffect();
 
     // element toggle function
     const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }

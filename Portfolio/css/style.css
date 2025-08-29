@@ -56,6 +56,124 @@
     --transition-2: 0.5s ease-in-out;
 }
 
+/* Light Mode Color Variables - Add these to your CSS */
+
+/* Theme Toggle Button Positioning */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    background: var(--border-gradient-onyx);
+    color: var(--orange-yellow-crayola);
+    border: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: var(--shadow-2);
+    z-index: 1000;
+    transition: var(--transition-1);
+}
+
+    .theme-toggle::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        background: var(--bg-gradient-jet);
+        border-radius: inherit;
+        z-index: -1;
+    }
+
+    .theme-toggle:hover {
+        background: var(--bg-gradient-yellow-1);
+    }
+
+        .theme-toggle:hover::before {
+            background: var(--bg-gradient-yellow-2);
+        }
+
+.theme-icon {
+    font-size: 16px;
+}
+
+[data-theme="light"] {
+    /**
+   * colors
+   */
+    /* gradient */
+    --bg-gradient-onyx: linear-gradient( to bottom right, hsl(210, 20%, 98%) 3%, hsl(0, 0%, 100%) 97% );
+    --bg-gradient-jet: linear-gradient( to bottom right, hsla(210, 15%, 95%, 0.8) 0%, hsla(210, 20%, 98%, 0) 100% ), hsl(0, 0%, 100%);
+    --bg-gradient-yellow-1: linear-gradient( to bottom right, hsl(45, 90%, 65%) 0%, hsla(36, 90%, 62%, 0) 50% );
+    --bg-gradient-yellow-2: linear-gradient( 135deg, hsla(45, 90%, 65%, 0.4) 0%, hsla(35, 90%, 62%, 0) 59.86% ), hsl(0, 0%, 100%);
+    --border-gradient-onyx: linear-gradient( to bottom right, hsl(210, 15%, 85%) 0%, hsla(210, 15%, 85%, 0) 50% );
+    --text-gradient-yellow: linear-gradient( to right, hsl(45, 85%, 50%), hsl(35, 85%, 47%) );
+    /* solid colors */
+    --jet: hsl(210, 15%, 90%);
+    --onyx: hsl(210, 20%, 95%);
+    --eerie-black-1: hsl(0, 0%, 100%);
+    --eerie-black-2: hsl(0, 0%, 95%);
+    --smoky-black: hsl(210, 10%, 90%);
+    --white-1: hsl(220, 25%, 15%);
+    --white-2: hsl(220, 30%, 10%);
+    --orange-yellow-crayola: hsl(45, 85%, 55%);
+    --vegas-gold: hsl(45, 70%, 45%);
+    --light-gray: hsl(220, 15%, 35%);
+    --light-gray-70: hsla(220, 15%, 35%, 0.7);
+    --bittersweet-shimmer: hsl(0, 60%, 50%);
+    /**
+   * shadow (softer shadows for light mode)
+   */
+    --shadow-1: -4px 8px 24px hsla(210, 20%, 20%, 0.08);
+    --shadow-2: 0 16px 30px hsla(210, 20%, 20%, 0.06);
+    --shadow-3: 0 16px 40px hsla(210, 20%, 20%, 0.08);
+    --shadow-4: 0 25px 50px hsla(210, 20%, 20%, 0.04);
+    --shadow-5: 0 24px 80px hsla(210, 20%, 20%, 0.06);
+}
+
+    /* Additional light mode specific styles */
+    [data-theme="light"] body {
+        background: var(--smoky-black);
+    }
+
+    [data-theme="light"] .navbar {
+        background: hsla(0, 0%, 100%, 0.9);
+        border-color: var(--jet);
+    }
+
+    [data-theme="light"] .mapbox iframe {
+        filter: grayscale(1) invert(0);
+    }
+
+    [data-theme="light"] .clients-item img {
+        filter: grayscale(1);
+    }
+
+        [data-theme="light"] .clients-item img:hover {
+            filter: grayscale(0);
+        }
+
+    [data-theme="light"] body::-webkit-scrollbar-track {
+        background: var(--smoky-black);
+    }
+
+    [data-theme="light"] body::-webkit-scrollbar-thumb {
+        border: 5px solid var(--smoky-black);
+        background: hsla(210, 15%, 60%, 0.3);
+        border-radius: 20px;
+        box-shadow: inset 1px 1px 0 hsla(210, 15%, 60%, 0.2), inset -1px -1px 0 hsla(210, 15%, 60%, 0.2);
+    }
+
+        [data-theme="light"] body::-webkit-scrollbar-thumb:hover {
+            background: hsla(210, 15%, 60%, 0.5);
+        }
+
+
+
+
 .cv-btn {
     display: flex;
     flex-direction: row;
@@ -330,8 +448,24 @@ main {
     width: max-content;
     padding: 3px 12px;
     border-radius: 8px;
+    /* Typewriter cursor */
+    border-right: 2px solid currentColor;
+    animation: blink 0.7s steps(1) infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    min-width: 15ch; /* reserve width for longest text */
+    min-height: 2.5em; /* reserve height for single line */
 }
+@keyframes blink {
+    0%, 50% {
+        border-color: transparent;
+    }
 
+    51%, 100% {
+        border-color: transparent;
+    }
+}
     .info-content .title:hover {
         color: rgb(3, 3, 3);
         background-color: wheat;
@@ -1881,5 +2015,10 @@ textarea.form-input::-webkit-resizer {
 
     .timeline-item-title {
         margin-top: 20px;
+    }
+}
+@media (max-width: 633px) {
+    .theme-toggle {
+        display: none;
     }
 }

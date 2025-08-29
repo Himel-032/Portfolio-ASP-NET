@@ -420,6 +420,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="images\blogs\" />
     <Folder Include="images\certificates\" />
+    <Folder Include="images\profile\" />
     <Folder Include="images\projects\" />
     <Folder Include="images\services\" />
   </ItemGroup>

@@ -7,7 +7,7 @@
     <title>Himel</title>
     <!--icon-->
     <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css?v=1.0">
+    <link rel="stylesheet" href="css/style.css?v=1.1">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,19 +16,24 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+         <button class="theme-toggle" data-theme-toggle>
+  <span class="theme-icon">🌙</span>
+  
+</button>
         <div>
             <main>
                 <!--sidebar-->
                 <aside class="sidebar" data-sidebar>
                     <div class="sidebar-info">
                         <figure class="avatar-box">
-                            <img src="images/hero.png" alt="Himel Hossain" width="80">
+                          
+                             <img id="imgHero" runat="server" class="hero-image" width="80" alt="Profile Image" />
                         </figure>
 
                         <div class="info-content">
-                            <h1 class="name" title="Himel Hossain">Himel Hossain</h1>
-                            <p class="title">CS Undergrad</p>
+                           <!-- <h1 class="name" title="Himel Hossain">Himel Hossain</h1> -->
+                            <h1 class="name" id="lblName" runat="server"></h1>
+                            <p class="title"></p>
                         </div>
                         <button class="info_more-btn" data-sidebar-btn>
                             <span>Show Contacts</span>
@@ -44,7 +49,7 @@
                                 </div>
                                 <div class="contact-info">
                                     <p class="contact-title">Email</p>
-                                    <a href="mailto:mdhimelhossain512@gmail.com" class="contact-link">himel@gmail.com</a>
+                                    <a id="lnkEmail" runat="server" class="contact-link"></a>
                                 </div>
                             </li>
                             <li class="contact-item">
@@ -53,7 +58,7 @@
                                 </div>
                                 <div class="contact-info">
                                     <p class="contact-title">Phone</p>
-                                    <a href="tel:+8801608639395" class="contact-link">+88016*****395</a>
+                                    <a id="lnkPhone" runat="server" class="contact-link"></a>
                                 </div>
                             </li>
                             <li class="contact-item">
@@ -71,27 +76,25 @@
                                 </div>
                                 <div class="contact-info">
                                     <p class="contact-title">Location</p>
-                                    <address>Dhamrai, Dhaka, Bangladesh</address>
+                                   <address id="lblLocation" runat="server"></address>
                                 </div>
                             </li>
                         </ul>
                         <div class="separator"></div>
                         <ul class="social-list">
                             <li class="social-item">
-                                <a href="https://www.facebook.com/himel.hossain.md" class="social-link">
-                                    <ion-icon name="logo-facebook"></ion-icon>
-                                </a>
+                                <a id="lnkFacebook" runat="server" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
                             </li>
-                            <li class="social-item">
-                                <a href="#" class="social-link">
-                                    <ion-icon name="logo-twitter"></ion-icon>
-                                </a>
-                            </li>
-                            <li class="social-item">
-                                <a href="https://www.instagram.com/nocturne_soul.x/" class="social-link">
-                                    <ion-icon name="logo-instagram"></ion-icon>
-                                </a>
-                            </li>
+                              <li class="social-item">
+                             <a id="lnkTwitter" runat="server" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+                                    <li class="social-item">
+                             <a id="lnkInstagram" runat="server" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
                         </ul>
                     </div>
                 </aside>
@@ -516,7 +519,7 @@
         </div>
     </form>
 
-    <script src="js/script.js?v=1.0" defer></script>
+    <script src="js/script.js?v=5.0" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
