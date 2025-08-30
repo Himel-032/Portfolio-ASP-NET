@@ -9,17 +9,22 @@
 </head>
 <body>
     <form runat="server">
-        <!-- Navbar -->
-        <nav class="navbar">
-    <a id="AdminLink" runat="server"  href="Admin.aspx">Admin</a>
-            <a id="ServicesLink" runat="server" href="Services.aspx">Services</a>
-    <a id="ResumeLink" runat="server"  href="Resume.aspx">Resume</a>
+      <!-- Navbar -->
+<nav class="navbar">
+    <a id="AdminLink" runat="server" href="Admin.aspx">Admin</a>
+    <a id="ServicesLink" runat="server" href="Services.aspx">Services</a>
+    <a id="ResumeLink" runat="server" href="Resume.aspx">Resume</a>
     <a id="CertificatesLink" runat="server" href="Certificates.aspx">Certificates</a>
     <a id="ProjectsLink" runat="server" href="Project.aspx">Projects</a>
-     <a id="BlogsLink" runat="server" href="Blog.aspx">Blogs</a>
-
+    <a id="BlogsLink" runat="server" href="Blog.aspx">Blogs</a>
     <a id="NpmLink" runat="server" href="Npm.aspx">NPM</a>
-     <a id="ContactLink" runat="server" href="Contact.aspx">Contact</a>
+    <a id="ContactLink" runat="server" href="Contact.aspx">Contact</a>
+
+    <!-- Admin info and logout -->
+    <span style="float:right;">
+        <asp:Label ID="lblAdmin" runat="server" Text="" Visible="false" Style="margin-right:10px;"></asp:Label>
+        <asp:LinkButton ID="lnkLogout" runat="server" style="color:red;" OnClick="lnkLogout_Click" Visible="false">Logout</asp:LinkButton>
+    </span>
 </nav>
 
         <!-- Page content -->

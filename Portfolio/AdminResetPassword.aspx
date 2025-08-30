@@ -1,0 +1,154 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminResetPassword.aspx.cs" Inherits="Portfolio.AdminResetPassword" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Reset Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .reset-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .reset-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .reset-container p {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .reset-container input[type=password] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .reset-container input[type=password]:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+
+        .reset-container button,
+        #btnResetPassword {
+            width: 100%;
+            padding: 12px;
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .reset-container button:hover,
+        #btnResetPassword:hover {
+            background: #45b7aa;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .message.error {
+            background: #ffe6e6;
+            color: #d63031;
+            border: 1px solid #fab1a0;
+        }
+
+        .message.success {
+            background: #e6ffe6;
+            color: #00b894;
+            border: 1px solid #55efc4;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .requirements {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .requirements h4 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .requirements ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="reset-container">
+            <h2>Reset Password</h2>
+            <p>Enter your new password below</p>
+            
+            <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" Placeholder="New Password"></asp:TextBox>
+            <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" Placeholder="Confirm Password"></asp:TextBox>
+
+            <div class="requirements">
+                <h4>Requirements:</h4>
+                <ul>
+                    <li>At least 4 characters</li>
+                   
+                </ul>
+            </div>
+            
+            <asp:Button ID="btnResetPassword" runat="server" Text="Reset Password" OnClick="btnResetPassword_Click" />
+            
+            <asp:Label ID="lblMessage" runat="server" CssClass="message"></asp:Label>
+            
+            <div class="back-link">
+                <a href="AdminLogin.aspx">Back to Login</a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

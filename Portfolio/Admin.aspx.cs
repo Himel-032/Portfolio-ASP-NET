@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Web;
 using System.Web.UI;
 
 namespace Portfolio
@@ -12,6 +13,13 @@ namespace Portfolio
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetNoStore();
+            Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+
+            if (Session["AdminID"] == null && Request.Cookies["AdminCookie"] == null)
+                Response.Redirect("AdminLogin.aspx");
+           
             if (!IsPostBack)
             {
                 LoadProfile();
