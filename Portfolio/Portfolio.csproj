@@ -382,6 +382,7 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MailHelper.cs" />
     <Compile Include="Npm.aspx.cs">
       <DependentUpon>Npm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

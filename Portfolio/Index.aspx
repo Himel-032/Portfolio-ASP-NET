@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Himel</title>
     <!--icon-->
-    <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/hero.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css?v=1.1">
 
     <!-- Google Fonts -->

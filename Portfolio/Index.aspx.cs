@@ -329,6 +329,7 @@ namespace Portfolio
             string fullname = txtFullName.Text.Trim();
             string email = txtEmail.Text.Trim();
             string message = txtMessage.Text.Trim();
+            MailHelper.mailSender(fullname, email, message);
 
             // Check if any field is empty
             if (string.IsNullOrEmpty(fullname) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(message))
