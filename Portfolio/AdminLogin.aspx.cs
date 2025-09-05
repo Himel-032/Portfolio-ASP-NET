@@ -19,7 +19,7 @@ namespace Portfolio
             Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
             if (!IsPostBack)
             {
-                // If "Remember Me" cookie exists, fill email field
+                
                 if (Request.Cookies["AdminCookie"] != null)
                 {
                     txtEmail.Text = Request.Cookies["AdminCookie"]["AdminEmail"];
@@ -31,7 +31,7 @@ namespace Portfolio
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim(); // In production, hash passwords!
+            string password = txtPassword.Text.Trim(); 
 
             
             using (SqlConnection con = new SqlConnection(connStr))
@@ -47,13 +47,13 @@ namespace Portfolio
                     string storedPassword = reader["password"].ToString();
                     int adminId = Convert.ToInt32(reader["id"]);
 
-                    if (password == storedPassword) // Replace with hash check in production
+                    if (password == storedPassword) 
                     {
-                        // ✅ Set Session
+                        
                         Session["AdminID"] = adminId;
                         Session["AdminEmail"] = email;
 
-                        // ✅ Set Cookie if "Remember Me" checked
+                       
                         if (chkRememberMe.Checked)
                         {
                             HttpCookie cookie = new HttpCookie("AdminCookie");
@@ -64,7 +64,7 @@ namespace Portfolio
                         }
                         else
                         {
-                            // Delete cookie if unchecked
+                           
                             if (Request.Cookies["AdminCookie"] != null)
                             {
                                 HttpCookie cookie = new HttpCookie("AdminCookie");

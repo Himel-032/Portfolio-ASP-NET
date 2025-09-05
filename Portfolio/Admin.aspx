@@ -34,12 +34,12 @@
             <asp:Label ID="lblInstagram" runat="server" Text="Instagram:" CssClass="npm-label"></asp:Label>
             <asp:TextBox ID="txtInstagram" runat="server" CssClass="npm-input"></asp:TextBox><br /><br />
 
-            <!-- Profile Image Upload -->
+            <!-- Profile Image  -->
             <asp:Label ID="lblImage" runat="server" Text="Profile Image:" CssClass="npm-label"></asp:Label>
             <asp:FileUpload ID="fuImage" runat="server" CssClass="npm-input" /><br /><br />
             <asp:Image ID="imgPreview" runat="server" Width="150" /><br /><br />
 
-            <!-- PDF Upload -->
+            <!-- PDF  -->
             <asp:Label ID="lblPdf" runat="server" Text="Resume / PDF:" CssClass="npm-label"></asp:Label>
             <asp:FileUpload ID="fuPdf" runat="server" CssClass="npm-input" /><br /><br />
             <asp:HyperLink ID="hlPdf" runat="server" Text="Download PDF" Target="_blank" Visible="false" CssClass="npm-link"></asp:HyperLink><br /><br />

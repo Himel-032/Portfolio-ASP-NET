@@ -159,6 +159,9 @@
     <Content Include="AdminForgetPassword.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminResetPassword.aspx" />
+    <Content Include="Admin_Panel\css\adminforgetpassword.css" />
+    <Content Include="Admin_Panel\css\adminlogin.css" />
+    <Content Include="Admin_Panel\css\adminresetpassword.css" />
     <Content Include="Admin_Panel\css\adminStyle.css" />
     <Content Include="Admin_Panel\css\dummy.css" />
     <Content Include="Blog.aspx" />

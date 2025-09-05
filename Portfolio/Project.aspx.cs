@@ -23,13 +23,13 @@ namespace Portfolio
       
         protected void gvProjects_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            // Check if the row is in edit mode
+           
             if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex == gvProjects.EditIndex)
             {
-                // Get the current data item
+               
                 DataRowView drv = e.Row.DataItem as DataRowView;
 
-                // Find the DropDownList and set its selected value
+               
                 DropDownList ddlEditCategory = (DropDownList)e.Row.FindControl("ddlEditCategory");
                 if (ddlEditCategory != null && drv != null)
                 {
@@ -37,11 +37,11 @@ namespace Portfolio
                     ddlEditCategory.SelectedValue = category;
                 }
 
-                // Find the HiddenField and set its value
+               
                 HiddenField hfOldImage = (HiddenField)e.Row.FindControl("hfOldImage");
                 if (hfOldImage != null && drv != null)
                 {
-                    // Set the HiddenField value to the current image_name from the database
+                  
                     hfOldImage.Value = drv["image_name"].ToString();
                 }
             }
@@ -75,7 +75,7 @@ namespace Portfolio
                 return;
             }
 
-            // Use a transaction to ensure atomicity of the operation
+            
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
@@ -83,7 +83,7 @@ namespace Portfolio
                 {
                     try
                     {
-                        // Step 1: Insert project and get the new ID
+                       
                         string insertQuery = "INSERT INTO projects (name, category, image_name, git_repo_url) OUTPUT INSERTED.id VALUES (@name, @category, @image, @github)";
 
                         using (SqlCommand cmd = new SqlCommand(insertQuery, conn, transaction))
@@ -95,13 +95,13 @@ namespace Portfolio
                             newProjectId = (int)cmd.ExecuteScalar();
                         }
 
-                        // Step 2: Save uploaded file to ~/images/projects/ using the new ID
+                        
                         fileName = "project_" + newProjectId + Path.GetExtension(fileUploadImage.FileName);
                         string folderPath = Server.MapPath("~/images/projects/");
                         string savePath = Path.Combine(folderPath, fileName);
                         fileUploadImage.SaveAs(savePath);
 
-                        // Step 3: Update project record with the actual image name
+                       
                         string updateQuery = "UPDATE projects SET image_name = @image WHERE id = @id";
                         using (SqlCommand cmd = new SqlCommand(updateQuery, conn, transaction))
                         {
@@ -117,7 +117,7 @@ namespace Portfolio
                     {
                         transaction.Rollback();
                         lblMessage.Text = "Error adding project: " + ex.Message;
-                        // Optional: Clean up the file if it was saved before the error
+                        
                         if (!string.IsNullOrEmpty(fileName))
                         {
                             string filePath = Server.MapPath("~/images/projects/" + fileName);
@@ -132,7 +132,7 @@ namespace Portfolio
             ddlCategory.SelectedIndex = 0;
             txtGithub.Text = "";
             LoadProjects();
-            // At the end of btnAdd_Click, after clearing controls:
+           
             Response.Redirect(Request.RawUrl);
 
         }
@@ -151,11 +151,10 @@ namespace Portfolio
        
         protected void gvProjects_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            // Retrieve the 'id' and 'image_name' directly from the DataKeys collection
+            
             int id = Convert.ToInt32(gvProjects.DataKeys[e.RowIndex]["id"]);
             string oldImage = gvProjects.DataKeys[e.RowIndex]["image_name"].ToString();
 
-            // The rest of your code is correct
             TextBox txtEditName = (TextBox)gvProjects.Rows[e.RowIndex].FindControl("txtEditName");
             DropDownList ddlEditCategory = (DropDownList)gvProjects.Rows[e.RowIndex].FindControl("ddlEditCategory");
             TextBox txtEditGithub = (TextBox)gvProjects.Rows[e.RowIndex].FindControl("txtEditGithub");
@@ -164,13 +163,13 @@ namespace Portfolio
             string name = txtEditName.Text.Trim();
             string category = ddlEditCategory.SelectedValue;
             string githubLink = txtEditGithub.Text.Trim();
-            string newImageName = oldImage; // Default to old image name
+            string newImageName = oldImage; 
 
-            // Check if a new file was uploaded
+            
             
             if (fileUploadEdit.HasFile)
             {
-                // Delete the old file if it exists
+                
                 if (!string.IsNullOrEmpty(oldImage))
                 {
                     string oldPath = Server.MapPath("~/images/projects/" + oldImage);
@@ -180,14 +179,14 @@ namespace Portfolio
                     }
                 }
 
-                // Save the new file with a NEW name
+               
                 string extension = Path.GetExtension(fileUploadEdit.FileName);
                 newImageName = "project_" + id + "_" + DateTime.Now.Ticks + extension; // unique name
                 fileUploadEdit.SaveAs(Server.MapPath("~/images/projects/" + newImageName));
             }
 
 
-            // Update the database record
+            
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
@@ -203,7 +202,7 @@ namespace Portfolio
                 }
             }
 
-            // Exit edit mode and refresh the grid
+            
             gvProjects.EditIndex = -1;
             LoadProjects();
         }
@@ -213,7 +212,7 @@ namespace Portfolio
         {
             int id = Convert.ToInt32(gvProjects.DataKeys[e.RowIndex].Value);
 
-            // Delete file from server if exists
+            
             string fileName = "";
             using (SqlConnection conn = new SqlConnection(connStr))
             {
@@ -232,7 +231,7 @@ namespace Portfolio
                     if (File.Exists(path)) File.Delete(path);
                 }
 
-                // Delete record from DB
+                
                 string deleteQuery = "DELETE FROM projects WHERE id=@id";
                 using (SqlCommand cmd = new SqlCommand(deleteQuery, conn))
                 {

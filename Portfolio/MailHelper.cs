@@ -12,15 +12,15 @@ namespace Portfolio
         {
             try
             {
-                // 1. Email to Admin
+                //  Email to Admin
                 MailMessage adminMail = new MailMessage();
-                adminMail.To.Add("himel19242@gmail.com");   // your admin email
+                adminMail.To.Add("himel19242@gmail.com");   // myadmin email address
                 adminMail.From = new MailAddress("mdhimelhossain512@gmail.com");
                 adminMail.Subject = "New Contact Message from " + fullname;
                 adminMail.Body = $"<b>Name:</b> {fullname}<br/><b>Email:</b> {email}<br/><b>Message:</b><br/>{message}";
                 adminMail.IsBodyHtml = true;
 
-                // 2. Auto-reply to User
+                // Auto-reply to User
                 MailMessage userMail = new MailMessage();
                 userMail.To.Add(email);
                 userMail.From = new MailAddress("mdhimelhossain512@gmail.com");
@@ -28,7 +28,7 @@ namespace Portfolio
                 userMail.Body = $"Dear {fullname},<br/><br/>Thanks for reaching out. We will get back to you soon.<br/><br/>Regards,<br/>Portfolio Team";
                 userMail.IsBodyHtml = true;
 
-                // SMTP Client (uses web.config)
+               
                 SmtpClient smtp = new SmtpClient();
                 smtp.Send(adminMail);
                 smtp.Send(userMail);

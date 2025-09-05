@@ -22,7 +22,7 @@ namespace Portfolio
             }
         }
 
-        //------------------- EDUCATION -------------------
+        // EDUCATION
         private void LoadEducation()
         {
             using (SqlConnection con = new SqlConnection(connStr))
@@ -109,7 +109,7 @@ namespace Portfolio
             LoadEducation();
         }
 
-        //------------------- EXPERIENCE -------------------
+        // EXPERIENCE 
         private void LoadExperience()
         {
             using (SqlConnection con = new SqlConnection(connStr))
@@ -198,7 +198,7 @@ namespace Portfolio
             LoadExperience();
         }
 
-        //------------------- SKILLS -------------------
+        // SKILLS 
         private void LoadSkills()
         {
             using (SqlConnection con = new SqlConnection(connStr))
@@ -282,7 +282,7 @@ namespace Portfolio
             LoadSkills();
         }
 
-        // ================= Programming Languages Section ===================
+        //  Programming Languages Section 
         protected void btnAddProgramming_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtProgName.Text) || string.IsNullOrWhiteSpace(txtProgPercent.Text) )
@@ -368,7 +368,7 @@ namespace Portfolio
         }
 
 
-        // ================= Languages Section =================
+        //  Languages Section 
         protected void btnAddLanguage_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtLangName.Text) || string.IsNullOrWhiteSpace(txtLangPercent.Text))

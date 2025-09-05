@@ -16,14 +16,13 @@ namespace Portfolio
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Disable browser caching
-            // Disable browser caching completely
+           
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetNoStore();
             Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
             Response.Cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
 
-            // Always check session and cookies, NOT just on !IsPostBack
+            //  checking session and cookies,
             if (Session["AdminID"] != null)
             {
                 lblAdmin.Visible = true;
@@ -41,11 +40,11 @@ namespace Portfolio
             }
             else
             {
-                // No session and no cookie → redirect to login immediately
+                
                 Response.Redirect("~/AdminLogin.aspx");
             }
 
-            // Get the last part of the path (without leading slash)
+           
             string currentPage = Request.Path.Trim('/').ToLower();
 
                 string baseClass = "nav-link";

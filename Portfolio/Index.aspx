@@ -7,7 +7,7 @@
     <title>Himel</title>
     <!--icon-->
     <link rel="shortcut icon" href="./images/hero.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css?v=1.1">
+    <link rel="stylesheet" href="css/style.css?v=1.2">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

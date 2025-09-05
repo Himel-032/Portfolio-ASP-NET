@@ -37,11 +37,11 @@ namespace Portfolio
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            // Trim and get input values
+          
             string title = txtTitle.Text.Trim();
             string desc = txtDescription.Text.Trim();
 
-            // Check if any field is empty or no file uploaded
+           
             if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(desc) || !fuIcon.HasFile)
             {
                 lblMessage.Text = "All fields are required!";
@@ -49,7 +49,7 @@ namespace Portfolio
                 return;
             }
 
-            // Validate file extension
+            
             string ext = Path.GetExtension(fuIcon.FileName).ToLower();
             if (ext != ".svg")
             {
@@ -72,7 +72,7 @@ namespace Portfolio
                 cmd.ExecuteNonQuery();
             }
 
-            // Clear fields and reload GridView
+           
             txtTitle.Text = "";
             txtDescription.Text = "";
             lblMessage.Text = "Service added successfully!";

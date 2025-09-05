@@ -40,11 +40,11 @@ namespace Portfolio
 
                 if (result != null)
                 {
-                    // ✅ Email exists, save admin ID in session for reset page
+                   
                     Session["ResetAdminID"] = result.ToString();
                     Session["ResetAdminEmail"] = email;
 
-                    // Redirect to reset password page
+                   
                     Response.Redirect("AdminResetPassword.aspx");
                 }
                 else

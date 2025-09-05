@@ -73,13 +73,13 @@ namespace Portfolio
             lblBlogMessage.Text = "✅ Blog added successfully!";
             lblBlogMessage.ForeColor = System.Drawing.Color.Green;
 
-            // Clear input fields
+            // Clearing input fields
             txtBlogTitle.Text = "";
             txtBlogDesc.Text = "";
             ddlBlogCategory.SelectedIndex = 0;
             txtBlogDate.Text = "";
             txtBlogLink.Text = "";
-            fileBlogImage.Dispose(); // Clears the file upload selection
+            fileBlogImage.Dispose(); 
 
             LoadBlogs();
            

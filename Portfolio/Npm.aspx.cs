@@ -15,9 +15,9 @@ namespace Portfolio
             if (!IsPostBack)
             {
                 LoadNpmUrls();
-                ViewState["EditID"] = null;   // reset EditID on first load
-                btnSubmit.Text = "Submit";     // reset button text
-                txtNpmUrl.Text = "";           // clear textbox
+                ViewState["EditID"] = null;   
+                btnSubmit.Text = "Submit";     
+                txtNpmUrl.Text = "";           
             }
         }
 
@@ -70,7 +70,7 @@ namespace Portfolio
             btnSubmit.Text = "Submit";
             txtNpmUrl.Text = "";
 
-            // Use Post-Redirect-Get to avoid resubmission on refresh
+            
             Response.Redirect(Request.RawUrl);
         }
 

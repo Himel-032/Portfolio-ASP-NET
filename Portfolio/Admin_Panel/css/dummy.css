@@ -1,6 +1,4 @@
-﻿/* =======================
-   Global Styles
-======================= */
+﻿
 * {
     margin: 0;
     padding: 0;
@@ -15,9 +13,7 @@ body {
 }
 
 
-/* =======================
-   Navbar
-======================= */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -94,9 +90,7 @@ body {
     transform: translateY(-2px) scale(1.05);
 }
            
-/* =======================
-   Content Panel / Card
-======================= */
+/* Content Panel */
 .content-panel, .main-content {
     background: #fff;
     border-radius: 10px;
@@ -128,9 +122,7 @@ body {
     }
 }
 
-/* =======================
-   Headings & Paragraphs
-======================= */
+/* Headings & Paragraphs */
 h1, h2 {
     color: #3a7bd5;
     margin-bottom: 10px;
@@ -140,9 +132,7 @@ p {
     margin-bottom: 20px;
 }
 
-/* =======================
-   Form Styles
-======================= */
+/*Form Styles */
 .npm-input, input[type="text"], select, textarea {
     width: 100%;
     max-width: 500px;
@@ -175,9 +165,7 @@ p {
     font-weight: 500;
 }
 
-/* =======================
-   Tables / GridView
-======================= */
+/*Tables / GridView */
 .npm-table, .table {
     width: 100%;
     border-collapse: collapse;
@@ -232,9 +220,7 @@ p {
         background: #c0392b;
     }
 
-/* =======================
-   NPM Package Cards
-======================= */
+/*NPM Package Cards */
 .npm-label {
     font-weight: 500;
     display: block;
@@ -269,9 +255,7 @@ p {
         overflow-x: auto;
     }
 
-/* =======================
-   Responsive Table Scroll
-======================= */
+/*  Responsive Table Scroll */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
@@ -307,9 +291,7 @@ p {
     }
 }
 
-/* =======================
-   Misc Utilities
-======================= */
+/* Misc Utilities */
 a {
     text-decoration: none;
     color: inherit;

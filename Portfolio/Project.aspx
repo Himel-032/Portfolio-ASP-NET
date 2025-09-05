@@ -90,7 +90,7 @@
                     <br />
                     Current: <%# Eval("image_name") %>
                     
-                    <%-- This is the crucial part! The HiddenField must be here. --%>
+                   
                     <asp:HiddenField ID="hfOldImage" runat="server" Value='<%# Eval("image_name") %>' />
                 </EditItemTemplate>
             </asp:TemplateField>

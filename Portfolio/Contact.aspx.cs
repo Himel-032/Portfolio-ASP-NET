@@ -14,7 +14,7 @@ namespace Portfolio
 {
     public partial class Contact : Page
     {
-        // Change to your SQL Server connection string in Web.config
+        
         string connStr = ConfigurationManager.ConnectionStrings["SqlServerConnection"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace Portfolio
                     cmd.ExecuteNonQuery();
                 }
 
-                LoadMessages(); // refresh grid
+                LoadMessages(); 
             }
         }
     }

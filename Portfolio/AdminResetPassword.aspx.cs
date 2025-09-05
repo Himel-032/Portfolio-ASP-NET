@@ -15,10 +15,10 @@ namespace Portfolio
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if session exists for reset
+          
             if (Session["ResetAdminID"] == null)
             {
-                // No session → redirect to forget password page
+               
                 Response.Redirect("AdminForgetPassword.aspx");
             }
         }
@@ -50,14 +50,14 @@ namespace Portfolio
                 return;
             }
 
-            // Update password in database
+          
             int adminId = Convert.ToInt32(Session["ResetAdminID"]);
             using (SqlConnection con = new SqlConnection(connStr))
             {
                 con.Open();
                 string query = "UPDATE Admin SET password=@Password WHERE id=@AdminID";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@Password", newPassword); // In production, hash the password
+                cmd.Parameters.AddWithValue("@Password", newPassword);
                 cmd.Parameters.AddWithValue("@AdminID", adminId);
                 int result = cmd.ExecuteNonQuery();
 
@@ -66,11 +66,11 @@ namespace Portfolio
                     lblMessage.Text = "Password has been reset successfully!";
                     lblMessage.CssClass = "message success";
 
-                    // Clear session
+                    
                     Session.Remove("ResetAdminID");
                     Session.Remove("ResetAdminEmail");
 
-                    // Redirect to login after a short delay
+                    
                     Response.AddHeader("REFRESH", "3;URL=AdminLogin.aspx");
                 }
                 else

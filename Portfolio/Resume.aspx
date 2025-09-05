@@ -4,7 +4,7 @@
 
 
 
-    <!-- ScriptManager for partial postback -->
+   
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="main-content">
     <!-- Navbar -->

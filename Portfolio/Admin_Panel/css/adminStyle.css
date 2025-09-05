@@ -1,6 +1,4 @@
-﻿/* =======================
-          Global Styles
-        ======================= */
+﻿
 * {
     margin: 0;
     padding: 0;
@@ -8,236 +6,299 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background: #f5f7fa;
-    color: #333;
+    color: #222;
     line-height: 1.6;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
-/* =======================
-          Navbar
-        ======================= */
+/* Navbar */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: linear-gradient(90deg, #3a7bd5, #00d2ff);
     padding: 14px 24px;
     flex-wrap: wrap;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(58, 123, 213, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #e3e8ee;
 }
 
-    .navbar a {
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 22px;
-        font-size: 17px;
-        font-weight: 500;
-        transition: background 0.2s, color 0.2s, transform 0.2s;
-        border-radius: 8px;
-        margin: 0 6px;
-        letter-spacing: 0.5px;
-    }
+.resume-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, #000, #333);
+    padding: 14px 24px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 80px;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
 
-        .navbar a:hover,
-        .navbar a:focus {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px) scale(1.05);
-        }
 
-        .navbar a.active {
-            background: #fff;
-            color: #3a7bd5;
-            font-weight: bold;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transform: none;
-        }
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    border-radius: 8px;
+    margin: 0 6px;
+    letter-spacing: 0.5px;
+}
 
-/* =======================
-          Content Panel / Card
-        ======================= */
+.resume-navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    border-radius: 8px;
+    margin: 0 6px;
+    letter-spacing: 0.5px;
+    background-color: black;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    background: #fff;
+    color: #3a7bd5;
+    transform: translateY(-2px) scale(1.05);
+}
+
+.navbar a.active {
+    background: #fff;
+    color: #0078d7;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,120,215,0.08);
+    border-bottom: 3px solid #0078d7;
+}
+
+.navbar a.resume {
+    background-color: black;
+    color: white;
+}
+
+.resume-navbar a:hover,
+.resume-navbar a:focus {
+    background: #333;
+    color: #fff;
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Content Panel */
 .content-panel, .main-content {
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    padding: 32px;
-    margin: 32px auto;
-    max-width: 1100px;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(58,123,213,0.07);
+    padding: 24px;
+    margin: 24px auto;
+    max-width: 90%;
 }
 
-/* =======================
-          Form Styles
-        ======================= */
+.content-panel {
+    width: 99%;
+    max-width: none;
+}
+
+
+@media screen and (max-width: 900px) {
+    .content-panel, .main-content {
+        padding: 16px;
+        margin: 16px auto;
+        max-width: 98%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content-panel, .main-content {
+        padding: 8px;
+        margin: 8px auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+/* Headings & Paragraphs */
+h1, h2 {
+    color: #3a7bd5;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/*Form Styles */
 .npm-input, input[type="text"], select, textarea {
     width: 100%;
     max-width: 500px;
-    padding: 14px 18px;
+    padding: 12px 16px;
     font-size: 16px;
-    margin-bottom: 16px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-    .npm-input:focus, input[type="text"]:focus, select:focus, textarea:focus {
-        outline: none;
-        border-color: #3a7bd5;
-        box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.2);
-    }
-
 .npm-button, input[type="submit"] {
-    padding: 14px 28px;
+    padding: 12px 24px;
     font-size: 16px;
     background: #3a7bd5;
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.2s ease;
 }
 
     .npm-button:hover, input[type="submit"]:hover {
         background: #0078d7;
-        transform: translateY(-2px);
     }
 
 .npm-message {
     display: block;
-    margin-top: 16px;
-    color: #27ae60;
-    font-weight: 600;
+    margin-top: 12px;
+    color: green;
+    font-weight: 500;
 }
 
-/* =======================
-          Tables / GridView
-        ======================= */
+/*Tables / GridView */
 .npm-table, .table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-top: 25px;
+    border-collapse: collapse;
+    margin-top: 20px;
     background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: 8px;
     overflow: hidden;
 }
 
     .npm-table th, .npm-table td, .table th, .table td {
-        border: none;
-        padding: 15px 20px;
+        border: 1px solid #ddd;
+        padding: 12px 15px;
         text-align: left;
-    }
-
-    .npm-table thead tr th:first-child, .table thead tr th:first-child {
-        border-top-left-radius: 12px;
-    }
-
-    .npm-table thead tr th:last-child, .table thead tr th:last-child {
-        border-top-right-radius: 12px;
     }
 
     .npm-table th, .table th {
         background: #3a7bd5;
         color: #fff;
-        font-weight: bold;
-        position: sticky;
-        top: 0;
     }
 
-    .npm-table tbody tr {
-        border-top: 1px solid #eee;
-        transition: background-color 0.2s ease;
+    .npm-table tr:hover, .table tr:hover {
+        background: #f1f1f1;
     }
-
-        .npm-table tbody tr:hover {
-            background: #f0f8ff;
-        }
 
 /* Action Buttons */
 .action-btn, .btn-edit, .btn-delete {
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 2px 2px 2px 0;
+    display: inline-block;
 }
 
 .btn-edit {
-    background: #2ecc71;
+    background: #27ae60;
     color: white;
-    border: none;
 }
 
     .btn-edit:hover {
-        background: #27ae60;
-        transform: translateY(-1px);
+        background: #219150;
     }
 
 .btn-delete {
     background: #e74c3c;
     color: white;
-    border: none;
 }
 
     .btn-delete:hover {
         background: #c0392b;
-        transform: translateY(-1px);
     }
 
-/* =======================
-          Responsive Tables for Mobile
-        ======================= */
+/*NPM Package Cards */
+.npm-label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 16px;
+}
+
+.package-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+    .package-card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .package-card p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 8px;
+    }
+
+    .package-card pre {
+        background: #f4f4f4;
+        padding: 8px;
+        border-radius: 6px;
+        overflow-x: auto;
+    }
+
+/*  Responsive Table Scroll */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
+}
+
+.npm-table {
+    min-width: 700px; /* adjust based on number of columns */
+}
+
+    .npm-table th {
+        position: sticky;
+        top: 0;
+        background: #3a7bd5;
+        color: #fff;
+        z-index: 2;
+    }
+
 @media (max-width: 768px) {
-    .npm-table, .table {
-        box-shadow: none;
-        border-radius: 0;
+    .content-panel {
+        padding: 12px;
+        margin: 12px auto;
+        max-width: 98%;
     }
 
-        .npm-table thead, .table thead {
-            display: none;
-        }
-
-        .npm-table tr, .table tr {
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 12px;
-            padding: 10px;
-            display: block;
-            width: 100%;
-        }
-
-        .npm-table td, .table td {
-            border-bottom: 1px solid #f0f0f0;
-            padding: 12px 15px;
-            text-align: right;
-            position: relative;
-            display: block;
-            width: 100%;
-        }
-
-            .npm-table td:last-child, .table td:last-child {
-                border-bottom: none;
-            }
-
-            .npm-table td::before, .table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 15px;
-                font-weight: bold;
-                color: #555;
-            }
-
-    .action-btn {
-        width: auto;
+    .npm-table th, .npm-table td {
+        padding: 8px 12px;
     }
+
+    .action-btn, .btn-edit, .btn-delete {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
+
+/* Misc Utilities */
+a {
+    text-decoration: none;
+    color: inherit;
 }

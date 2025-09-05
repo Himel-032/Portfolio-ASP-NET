@@ -17,7 +17,7 @@ namespace Portfolio
 {
     public partial class Index : System.Web.UI.Page
     {
-        //string connStr = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+        
         string connStr = ConfigurationManager.ConnectionStrings["SqlServerConnection"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Portfolio
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string query = "SELECT TOP 1 * FROM Profile ORDER BY Id DESC"; // only one row max
+                string query = "SELECT TOP 1 * FROM Profile ORDER BY Id DESC"; 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
 
@@ -73,8 +73,8 @@ namespace Portfolio
                         imgHero.Src = reader["ImagePath"].ToString();
                         imgHero.Alt = reader["Name"].ToString();
 
-                        // Set the CV download link dynamically
-                        string pdfPath = reader["PdfPath"].ToString(); // <-- Ensure this column exists in your table
+                        
+                        string pdfPath = reader["PdfPath"].ToString(); 
                         if (!string.IsNullOrEmpty(pdfPath))
                         {
                             lnkDownloadCV.NavigateUrl = pdfPath;
@@ -313,7 +313,7 @@ namespace Portfolio
                     string repoUrl = data["repository"]?["url"];
                     if (string.IsNullOrEmpty(repoUrl)) return "#";
 
-                    // Remove git+ prefix and .git suffix
+                   
                     repoUrl = repoUrl.Replace("git+", "").Replace(".git", "");
                     return repoUrl;
                 }
@@ -331,14 +331,13 @@ namespace Portfolio
             string message = txtMessage.Text.Trim();
             MailHelper.mailSender(fullname, email, message);
 
-            // Check if any field is empty
             if (string.IsNullOrEmpty(fullname) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(message))
             {
                 lblMsg.Text = "Please fill up all fields!";
                 return;
             }
 
-            // Use SQL Server connection string
+         
             string connStr = ConfigurationManager.ConnectionStrings["SqlServerConnection"].ConnectionString;
 
             using (SqlConnection conn = new SqlConnection(connStr))
