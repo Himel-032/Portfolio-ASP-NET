@@ -163,7 +163,6 @@
     <Content Include="Admin_Panel\css\adminlogin.css" />
     <Content Include="Admin_Panel\css\adminresetpassword.css" />
     <Content Include="Admin_Panel\css\adminStyle.css" />
-    <Content Include="Admin_Panel\css\dummy.css" />
     <Content Include="Blog.aspx" />
     <Content Include="Certificates.aspx" />
     <Content Include="Contact.aspx" />

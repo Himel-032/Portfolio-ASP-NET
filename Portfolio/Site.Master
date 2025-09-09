@@ -4,14 +4,14 @@
 <html>
 <head runat="server">
     <title>Admin Panel</title>
-    <link href="Admin_Panel/css/dummy.css?v=2.0" runat="server" rel="stylesheet" />
+    <link href="Admin_Panel/css/adminStyle.css?v=1.1" runat="server" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
     <form runat="server">
       <!-- Navbar -->
 <nav class="navbar">
-    <a id="AdminLink" runat="server" href="Admin.aspx">Admin</a>
+    <a id="AdminLink" runat="server" href="Admin.aspx">Profile</a>
     <a id="ServicesLink" runat="server" href="Services.aspx">Services</a>
     <a id="ResumeLink" runat="server" href="Resume.aspx">Resume</a>
     <a id="CertificatesLink" runat="server" href="Certificates.aspx">Certificates</a>
@@ -29,6 +29,10 @@
 
         <!-- Page content -->
         <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+        <footer style="background-color:#f2f2f2; z-index: 100; padding:10px 20px; text-align:center; font-size:14px; color:#333; position:fixed; bottom:0; width:100%; box-shadow:0 -2px 5px rgba(0,0,0,0.1);">
+    &copy; <% = DateTime.Now.Year %> Md Himel Hossain. All Rights Reserved. | Admin Panel
+</footer>
     </form>
 </body>
 </html>
